@@ -549,39 +549,39 @@ void QG_LayerWidget::contextMenuEvent(QContextMenuEvent *e) {
 
     if (actionHandler) {
         QMenu* contextMenu = new QMenu(this);
-        QLabel* caption = new QLabel(tr("Layer Menu"), this);
+        QLabel* caption = new QLabel(QStringLiteral("图层菜单"), this);
         QPalette palette;
         palette.setColor(caption->backgroundRole(), RS_Color(0,0,0));
         palette.setColor(caption->foregroundRole(), RS_Color(255,255,255));
         caption->setPalette(palette);
         caption->setAlignment( Qt::AlignCenter );
         // Actions for all layers:
-        contextMenu->addAction( tr("&Defreeze all Layers"), actionHandler,
+        contextMenu->addAction(QStringLiteral("解冻所有图层"), actionHandler,
                                  SLOT(slotLayersDefreezeAll()), 0);
-        contextMenu->addAction( tr("&Freeze all Layers"), actionHandler,
+        contextMenu->addAction(QStringLiteral("冻结所有图层"), actionHandler,
                                  SLOT(slotLayersFreezeAll()), 0);
-        contextMenu->addAction( tr("&Unlock all Layers"), actionHandler,
+        contextMenu->addAction(QStringLiteral("解锁所有图层"), actionHandler,
                                  SLOT(slotLayersUnlockAll()), 0);
-        contextMenu->addAction( tr("&Lock all Layers"), actionHandler,
+        contextMenu->addAction(QStringLiteral("锁住所有图层"), actionHandler,
                                  SLOT(slotLayersLockAll()), 0);
         contextMenu->addSeparator();
         // Actions for selected layers or,
         // if nothing is selected, for active layer:
-        contextMenu->addAction( tr("Toggle Layer &Visibility"), actionHandler,
+        contextMenu->addAction(QStringLiteral("图层可见性"), actionHandler,
                                  SLOT(slotLayersToggleView()), 0);
-        contextMenu->addAction( tr("Toggle Layer Loc&k"), actionHandler,
+        contextMenu->addAction(QStringLiteral("锁图层"), actionHandler,
                                  SLOT(slotLayersToggleLock()), 0);
-        contextMenu->addAction( tr("Toggle Layer &Printing"), actionHandler,
+        contextMenu->addAction(QStringLiteral("打印图层"), actionHandler,
                                  SLOT(slotLayersTogglePrint()), 0);
-        contextMenu->addAction( tr("Toggle &Construction Layer"), actionHandler,
+        contextMenu->addAction(QStringLiteral("新建图层"), actionHandler,
                                  SLOT(slotLayersToggleConstruction()), 0);
-        contextMenu->addAction( tr("&Remove Layer"), actionHandler,
+        contextMenu->addAction(QStringLiteral("删除图层"), actionHandler,
                                  SLOT(slotLayersRemove()), 0);
         contextMenu->addSeparator();
         // Single layer actions:
-        contextMenu->addAction( tr("&Add Layer"), actionHandler,
+        contextMenu->addAction(QStringLiteral("添加图层"), actionHandler,
                                  SLOT(slotLayersAdd()), 0);
-        contextMenu->addAction( tr("Edit Layer &Attributes"), actionHandler,
+        contextMenu->addAction(QStringLiteral("编辑图层属性"), actionHandler,
                                  SLOT(slotLayersEdit()), 0);
         contextMenu->exec(QCursor::pos());
         delete contextMenu;

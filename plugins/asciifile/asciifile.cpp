@@ -172,7 +172,7 @@ pointBox::pointBox(const QString & title, const QString & label, QWidget * paren
     rb->setTristate (false );
     vbox = new QVBoxLayout;
     vbox->addWidget(rb);
-    QLabel *but = new QLabel(tr("Layer:"));
+    QLabel *but = new QLabel(QStringLiteral("图层:"));
     layedit = new QLineEdit();
     QHBoxLayout *lolayer = new QHBoxLayout;
     lolayer->addWidget(but);
@@ -232,7 +232,7 @@ dibPunto::dibPunto(QWidget *parent) :  QDialog(parent)
     QGridLayout *mainLayout = new QGridLayout;
 //readSettings();
 
-    QPushButton *filebut = new QPushButton(tr("File..."));
+    QPushButton *filebut = new QPushButton(QStringLiteral("文件..."));
     fileedit = new QLineEdit();
     QHBoxLayout *lofile = new QHBoxLayout;
     lofile->addWidget(filebut);
@@ -269,12 +269,12 @@ dibPunto::dibPunto(QWidget *parent) :  QDialog(parent)
     mainLayout->addWidget(ptcode, 2, 1);
 
     QHBoxLayout *loaccept = new QHBoxLayout;
-    QPushButton *acceptbut = new QPushButton(tr("Accept"));
+    QPushButton *acceptbut = new QPushButton(QStringLiteral("应用"));
     loaccept->addStretch();
     loaccept->addWidget(acceptbut);
     mainLayout->addLayout(loaccept, 3, 0);
 
-    QPushButton *cancelbut = new QPushButton(tr("Cancel"));
+    QPushButton *cancelbut = new QPushButton(QStringLiteral("取消"));
     QHBoxLayout *locancel = new QHBoxLayout;
     locancel->addWidget(cancelbut);
     locancel->addStretch();
@@ -643,7 +643,7 @@ dibPunto::~dibPunto()
 void dibPunto::readSettings()
  {
     QString str;
-    QSettings settings(QSettings::IniFormat, QSettings::UserScope, "LibreCAD", "asciifile");
+    QSettings settings(QSettings::IniFormat, QSettings::UserScope, "正CAD", "asciifile");
     QPoint pos = settings.value("pos", QPoint(200, 200)).toPoint();
     QSize size = settings.value("size", QSize(500,300)).toSize();
     str = settings.value("lastfile").toString();
@@ -683,7 +683,7 @@ void dibPunto::readSettings()
 
 void dibPunto::writeSettings()
  {
-    QSettings settings(QSettings::IniFormat, QSettings::UserScope, "LibreCAD", "asciifile");
+    QSettings settings(QSettings::IniFormat, QSettings::UserScope, "正CAD", "asciifile");
     settings.setValue("pos", pos());
     settings.setValue("size", size());
     settings.setValue("lastfile", fileedit->text());

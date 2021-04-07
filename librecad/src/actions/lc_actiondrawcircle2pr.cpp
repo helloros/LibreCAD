@@ -229,16 +229,16 @@ QStringList LC_ActionDrawCircle2PR::getAvailableCommands() {
 void LC_ActionDrawCircle2PR::updateMouseButtonHints() {
 	switch (getStatus()) {
 	case SetPoint1:
-		RS_DIALOGFACTORY->updateMouseWidget(tr("Specify first point"),
-											tr("Cancel"));
+        RS_DIALOGFACTORY->updateMouseWidget(QStringLiteral("指定第一个点"),
+                                            QStringLiteral("取消"));
 		break;
 	case SetPoint2:
-		RS_DIALOGFACTORY->updateMouseWidget(tr("Specify second point"),
-											tr("Back"));
+        RS_DIALOGFACTORY->updateMouseWidget(QStringLiteral("指定第二个点"),
+                                            QStringLiteral("后退"));
 		break;
 	case SelectCenter:
-		RS_DIALOGFACTORY->updateMouseWidget(tr("Select circle center"),
-											tr("Back"));
+        RS_DIALOGFACTORY->updateMouseWidget(QStringLiteral("指定圆的中心"),
+                                            QStringLiteral("后退"));
 		break;
 	default:
 		RS_DIALOGFACTORY->updateMouseWidget();

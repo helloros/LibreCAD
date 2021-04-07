@@ -47,7 +47,7 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
 
     // <[~ Zoom ~]>
 
-    action = new QAction(tr("Zoom &Panning"), agm->other);
+    action = new QAction(QStringLiteral("固定缩放"), agm->other);
     action->setIcon(QIcon(":/icons/zoom_pan.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotZoomPan()));
@@ -98,7 +98,7 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
     action->setObjectName("DeselectIntersected");
     a_map["DeselectIntersected"] = action;
 
-    action = new QAction(tr("(De-)Select Layer"), agm->select);
+    action = new QAction(QStringLiteral("选择图层"), agm->select);
     action->setIcon(QIcon(":/icons/deselect_layer.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotSelectLayer()));
@@ -107,7 +107,7 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
 
     // <[~ Draw ~]>
 
-    action = new QAction(tr("&Points"), agm->other);
+    action = new QAction(QStringLiteral("点"), agm->other);
     action->setIcon(QIcon(":/icons/points.svg"));
 
     connect(action, SIGNAL(triggered()),
@@ -117,28 +117,28 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
 
     // <[~ Line ~]>
 
-    action = new QAction(tr("&2 Points"), agm->line);
+    action = new QAction(QStringLiteral("两点"), agm->line);
     action->setIcon(QIcon(":/icons/line_2p.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawLine()));
     action->setObjectName("DrawLine");
     a_map["DrawLine"] = action;
 
-    action = new QAction(tr("&Angle"), agm->line);
+    action = new QAction(QStringLiteral("角度"), agm->line);
     action->setIcon(QIcon(":/icons/line_angle.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawLineAngle()));
     action->setObjectName("DrawLineAngle");
     a_map["DrawLineAngle"] = action;
 
-    action = new QAction(tr("&Horizontal"), agm->line);
+    action = new QAction(QStringLiteral("水平线"), agm->line);
     action->setIcon(QIcon(":/icons/line_horizontal.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawLineHorizontal()));
     action->setObjectName("DrawLineHorizontal");
     a_map["DrawLineHorizontal"] = action;
 
-    action = new QAction(tr("Vertical"), agm->line);
+    action = new QAction(QStringLiteral("垂线"), agm->line);
     action->setIcon(QIcon(":/icons/line_vertical.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawLineVertical()));
@@ -151,91 +151,91 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
 //    action->setObjectName("DrawLineHorVert");
 //    a_map["DrawLineHorVert"] = action;
 
-    action = new QAction(tr("&Freehand Line"), agm->line);
+    action = new QAction(QStringLiteral("随手绘"), agm->line);
     action->setIcon(QIcon(":/icons/line_freehand.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawLineFree()));
     action->setObjectName("DrawLineFree");
     a_map["DrawLineFree"] = action;
 
-    action = new QAction(tr("&Parallel"), agm->line);
+    action = new QAction(QStringLiteral("平行线"), agm->line);
     action->setIcon(QIcon(":/icons/line_parallel.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawLineParallel()));
     action->setObjectName("DrawLineParallel");
     a_map["DrawLineParallel"] = action;
 
-    action = new QAction(tr("Parallel through point"), agm->line);
+    action = new QAction(QStringLiteral("通过某点的平行线"), agm->line);
     action->setIcon(QIcon(":/icons/line_parallel_p.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawLineParallelThrough()));
     action->setObjectName("DrawLineParallelThrough");
     a_map["DrawLineParallelThrough"] = action;
 
-    action = new QAction(tr("Rectangle"), agm->line);
+    action = new QAction(QStringLiteral("矩形"), agm->line);
     action->setIcon(QIcon(":/icons/line_rectangle.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawLineRectangle()));
     action->setObjectName("DrawLineRectangle");
     a_map["DrawLineRectangle"] = action;
 
-    action = new QAction(tr("Bisector"), agm->line);
+    action = new QAction(QStringLiteral("平分线"), agm->line);
     action->setIcon(QIcon(":/icons/line_bisector.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawLineBisector()));
     action->setObjectName("DrawLineBisector");
     a_map["DrawLineBisector"] = action;
 
-    action = new QAction(tr("Tangent (P,C)"), agm->line);
+    action = new QAction(QStringLiteral("切线(点, 圆)"), agm->line);
     action->setIcon(QIcon(":/icons/line_tangent_pc.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawLineTangent1()));
     action->setObjectName("DrawLineTangent1");
     a_map["DrawLineTangent1"] = action;
 
-    action = new QAction(tr("Tangent (C,C)"), agm->line);
+    action = new QAction(QStringLiteral("切线(圆, 圆)"), agm->line);
     action->setIcon(QIcon(":/icons/line_tangent_cc.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawLineTangent2()));
     action->setObjectName("DrawLineTangent2");
     a_map["DrawLineTangent2"] = action;
 
-    action = new QAction(tr("Tangent &Orthogonal"), agm->line);
+    action = new QAction(QStringLiteral("正交切线"), agm->line);
     action->setIcon(QIcon(":/icons/line_tangent_perpendicular.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawLineOrthTan()));
     action->setObjectName("DrawLineOrthTan");
     a_map["DrawLineOrthTan"] = action;
 
-    action = new QAction(tr("Orthogonal"), agm->line);
+    action = new QAction(QStringLiteral("正交线"), agm->line);
     action->setIcon(QIcon(":/icons/line_perpendicular.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawLineOrthogonal()));
     action->setObjectName("DrawLineOrthogonal");
     a_map["DrawLineOrthogonal"] = action;
 
-    action = new QAction(tr("Relative angle"), agm->line);
+    action = new QAction(QStringLiteral("对偶角"), agm->line);
     action->setIcon(QIcon(":/icons/line_relative_angle.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawLineRelAngle()));
     action->setObjectName("DrawLineRelAngle");
     a_map["DrawLineRelAngle"] = action;
 
-    action = new QAction(tr("Pol&ygon (Cen,Cor)"), agm->line);
+    action = new QAction(QStringLiteral("多边形(中心, 拐角点)"), agm->line);
     action->setIcon(QIcon(":/icons/line_polygon_cen_cor.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawLinePolygon()));
     action->setObjectName("DrawLinePolygonCenCor");
     a_map["DrawLinePolygonCenCor"] = action;
 
-    action = new QAction(tr("Pol&ygon (Cen,Tan)"), agm->line);  //20161223 added by txmy
+    action = new QAction(QStringLiteral("多边形(中心, 正切)"), agm->line);  //20161223 added by txmy
     action->setIcon(QIcon(":/icons/line_polygon_cen_tan.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawLinePolygon3()));
     action->setObjectName("DrawLinePolygonCenTan");
     a_map["DrawLinePolygonCenTan"] = action;
 
-    action = new QAction(tr("Polygo&n (Cor,Cor)"), agm->line);
+    action = new QAction(QStringLiteral("多边形(拐角点, 拐角点)"), agm->line);
     action->setIcon(QIcon(":/icons/line_polygon_cor_cor.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawLinePolygon2()));
@@ -244,34 +244,34 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
 
     // <[~ Circle ~]>
 
-    action = new QAction(tr("Center, &Point"), agm->circle);
+    action = new QAction(QStringLiteral("中心点, 点"), agm->circle);
     action->setIcon(QIcon(":/icons/circle_center_point.svg"));
     connect(action, SIGNAL(triggered()), action_handler, SLOT(slotDrawCircle()));
     action->setObjectName("DrawCircle");
     a_map["DrawCircle"] = action;
 
-    action = new QAction(tr("Center, &Radius"), agm->circle);
+    action = new QAction(QStringLiteral("中心点, 半径"), agm->circle);
     action->setIcon(QIcon(":/icons/circle_center_radius.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawCircleCR()));
     action->setObjectName("DrawCircleCR");
     a_map["DrawCircleCR"] = action;
 
-    action = new QAction(tr("2 Points"), agm->circle);
+    action = new QAction(QStringLiteral("点, 点"), agm->circle);
     action->setIcon(QIcon(":/icons/circle_2_points.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawCircle2P()));
     action->setObjectName("DrawCircle2P");
     a_map["DrawCircle2P"] = action;
 
-    action = new QAction(tr("2 Points, Radius"), agm->circle);
+    action = new QAction(QStringLiteral("点, 点, 半径"), agm->circle);
     action->setIcon(QIcon(":/icons/circle_2_points_radius.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawCircle2PR()));
     action->setObjectName("DrawCircle2PR");
     a_map["DrawCircle2PR"] = action;
 
-    action = new QAction(tr("3 Points"), agm->circle);
+    action = new QAction(QStringLiteral("点, 点, 点"), agm->circle);
     action->setIcon(QIcon(":/icons/circle_3_points.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawCircle3P()));
@@ -323,7 +323,7 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
 
     // <[~ Arc ~]>
 
-    action = new QAction(tr("&Center, Point, Angles"), agm->curve);
+    action = new QAction(QStringLiteral("中心点, 点, 角度"), agm->curve);
     action->setIcon(QIcon(":/icons/arc_center_point_angle.svg"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()),
@@ -331,7 +331,7 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
     action->setObjectName("DrawArc");
     a_map["DrawArc"] = action;
 
-    action = new QAction(tr("&3 Points"), agm->curve);
+    action = new QAction(QStringLiteral("点, 点, 点"), agm->curve);
     action->setIcon(QIcon(":/icons/arc_3_points.svg"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()),
@@ -339,7 +339,7 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
     action->setObjectName("DrawArc3P");
     a_map["DrawArc3P"] = action;
 
-    action = new QAction(tr("&Concentric"), agm->curve);
+    action = new QAction(QStringLiteral("同心"), agm->curve);
     action->setIcon(QIcon(":/icons/arc_concentric.svg"));
     action->setCheckable(true);
     connect(action, SIGNAL(triggered()),
@@ -385,7 +385,7 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
     action->setObjectName("DrawEllipse4Points");
     a_map["DrawEllipse4Points"] = action;
 
-    action = new QAction(tr("Ellipse Center and &3 Points"), agm->ellipse);
+    action = new QAction(QStringLiteral("椭圆中心点, 点, 点"), agm->ellipse);
     action->setIcon(QIcon(":/icons/ellipse_center_3_points.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawEllipseCenter3Points()));
@@ -480,27 +480,27 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
 
     // <[~ Misc ~]>
 
-    action = new QAction(QIcon(":/icons/text.svg"), tr("&MText"), agm->other);
+    action = new QAction(QIcon(":/icons/text.svg"), QStringLiteral("富文本"), agm->other);
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawMText()));
     action->setObjectName("DrawMText");
     a_map["DrawMText"] = action;
 
-    action = new QAction(tr("&Text"), agm->other);
+    action = new QAction(QStringLiteral("文本"), agm->other);
     action->setIcon(QIcon(":/icons/text.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawText()));
     action->setObjectName("DrawText");
     a_map["DrawText"] = action;
 
-    action = new QAction(tr("&Hatch"), agm->other);
+    action = new QAction(QStringLiteral("填充"), agm->other);
     action->setIcon(QIcon(":/icons/hatch.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawHatch()));
     action->setObjectName("DrawHatch");
     a_map["DrawHatch"] = action;
 
-    action = new QAction(tr("Insert &Image"), agm->other);
+    action = new QAction(QStringLiteral("插入图片"), agm->other);
     action->setIcon(QIcon(":/icons/camera.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotDrawImage()));
@@ -817,77 +817,77 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
 
     // <[~ Layer ~]>
 
-    action = new QAction(tr("&Show all"), agm->layer);
+    action = new QAction(QStringLiteral("显示所有图层"), agm->layer);
     action->setIcon(QIcon(":/ui/visibleblock.png"));
     connect(action, SIGNAL(triggered()),
             action_handler, SLOT(slotLayersDefreezeAll()));
     action->setObjectName("LayersDefreezeAll");
     a_map["LayersDefreezeAll"] = action;
 
-    action = new QAction(tr("&Hide all"), agm->layer);
+    action = new QAction(QStringLiteral("隐藏所有图层"), agm->layer);
     action->setIcon(QIcon(":/ui/hiddenblock.png"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotLayersFreezeAll()));
     action->setObjectName("LayersFreezeAll");
     a_map["LayersFreezeAll"] = action;
 
-    action = new QAction(tr("&Unlock all"), agm->layer);
+    action = new QAction(QStringLiteral("全部解锁"), agm->layer);
     action->setIcon(QIcon(":/ui/unlockedlayer.png"));
     connect(action, SIGNAL(triggered()),
             action_handler, SLOT(slotLayersUnlockAll()));
     action->setObjectName("LayersUnlockAll");
     a_map["LayersUnlockAll"] = action;
 
-    action = new QAction(tr("&Lock all"), agm->layer);
+    action = new QAction(QStringLiteral("全部锁定"), agm->layer);
     action->setIcon(QIcon(":/ui/lockedlayer.png"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotLayersLockAll()));
     action->setObjectName("LayersLockAll");
     a_map["LayersLockAll"] = action;
 
-    action = new QAction(tr("&Add Layer"), agm->layer);
+    action = new QAction(QStringLiteral("添加图层"), agm->layer);
     action->setIcon(QIcon(":/icons/add.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotLayersAdd()));
     action->setObjectName("LayersAdd");
     a_map["LayersAdd"] = action;
 
-    action = new QAction(tr("&Remove Layer"), agm->layer);
+    action = new QAction(QStringLiteral("删除图层"), agm->layer);
     action->setIcon(QIcon(":/icons/remove.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotLayersRemove()));
     action->setObjectName("LayersRemove");
     a_map["LayersRemove"] = action;
 
-    action = new QAction(tr("&Edit Layer"), agm->layer);
+    action = new QAction(QStringLiteral("编辑图层"), agm->layer);
     action->setIcon(QIcon(":/icons/attributes.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotLayersEdit()));
     action->setObjectName("LayersEdit");
     a_map["LayersEdit"] = action;
 
-    action = new QAction(tr("Toggle Layer Loc&k"), agm->layer);
+    action = new QAction(QStringLiteral("锁定图层"), agm->layer);
     action->setIcon(QIcon(":/icons/locked.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotLayersToggleLock()));
     action->setObjectName("LayersToggleLock");
     a_map["LayersToggleLock"] = action;
 
-    action = new QAction(tr("&Toggle Layer Visibility"), agm->layer);
+    action = new QAction(QStringLiteral("显示图层"), agm->layer);
     action->setIcon(QIcon(":/icons/visible.svg"));
     connect(action, SIGNAL(triggered()),
     action_handler, SLOT(slotLayersToggleView()));
     action->setObjectName("LayersToggleView");
     a_map["LayersToggleView"] = action;
 
-    action = new QAction(tr("Toggle Layer &Print"), agm->layer);
+    action = new QAction(QStringLiteral("打印图层"), agm->layer);
     action->setIcon(QIcon(":/icons/print.svg"));
     connect(action, SIGNAL(triggered()), action_handler,
             SLOT(slotLayersTogglePrint()));
     action->setObjectName("LayersTogglePrint");
     a_map["LayersTogglePrint"] = action;
 
-    action = new QAction(tr("Toggle &Construction Layer"), agm->layer);
+    action = new QAction(QStringLiteral("构建图层"), agm->layer);
     action->setIcon(QIcon(":/icons/construction_layer.svg"));
     connect(action, SIGNAL(triggered()),
             action_handler, SLOT(slotLayersToggleConstruction()));
@@ -968,7 +968,7 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
 
     // <[~ Options ~]>
 
-    action = new QAction(tr("&Application Preferences"), agm->options);
+    action = new QAction(QStringLiteral("应用程序首选项"), agm->options);
     action->setIcon(QIcon(":/icons/settings.svg"));
     connect(action, SIGNAL(triggered()),
     main_window, SLOT(slotOptionsGeneral()));
@@ -976,7 +976,7 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
     action->setObjectName("OptionsGeneral");
     a_map["OptionsGeneral"] = action;
 
-    action = new QAction(tr("Current &Drawing Preferences"), agm->options);
+    action = new QAction(QStringLiteral("当前工程图首选项"), agm->options);
     action->setIcon(QIcon(":/icons/drawing_settings.svg"));
     action->setShortcut(QKeySequence::Preferences);
     connect(action, SIGNAL(triggered()),
@@ -984,13 +984,13 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
     action->setObjectName("OptionsDrawing");
     a_map["OptionsDrawing"] = action;
 
-    action = new QAction(tr("Widget Options"), agm->options);
+    action = new QAction(QStringLiteral("控件配置"), agm->options);
     action->setObjectName("WidgetOptions");
     a_map["WidgetOptions"] = action;
     connect(action, SIGNAL(triggered()),
             main_window, SLOT(widgetOptionsDialog()));
 
-    action = new QAction(tr("Device Options"), agm->options);
+    action = new QAction(QStringLiteral("设备配置"), agm->options);
     action->setObjectName("DeviceOptions");
     a_map["DeviceOptions"] = action;
     connect(action, SIGNAL(triggered()),
@@ -998,7 +998,7 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
 
     // <[~ Modify ~]>
 
-    action = new QAction(tr("&Delete selected"), agm->edit);
+    action = new QAction(QStringLiteral("删除选择"), agm->edit);
     action->setIcon(QIcon(":/icons/delete.svg"));
     action->setShortcuts(QList<QKeySequence>() << QKeySequence::Delete << QKeySequence(Qt::Key_Backspace));
     connect(action, SIGNAL(triggered()),
@@ -1006,7 +1006,7 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
     action->setObjectName("ModifyDeleteQuick");
     a_map["ModifyDeleteQuick"] = action;
 
-    action = new QAction(tr("Select &All"), agm->select);
+    action = new QAction(QStringLiteral("全选"), agm->select);
     action->setShortcut(QKeySequence::SelectAll);
     action->setIcon(QIcon(":/icons/select_all.svg"));
     connect(action, SIGNAL(triggered()),
@@ -1016,7 +1016,7 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
 
     // <[~ Select ~]>
 
-    action = new QAction(tr("Deselect &all"), agm->select);
+    action = new QAction(QStringLiteral("全部取消选择"), agm->select);
     // RVT April 29, 2011 - Added esc key to de-select all entities
     action->setShortcuts(QList<QKeySequence>() << QKeySequence(tr("Ctrl+K")));
     action->setIcon(QIcon(":/icons/deselect_all.svg"));
@@ -1056,14 +1056,14 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
     action->setObjectName("FileExport");
     a_map["FileExport"] = action;
 
-    action = new QAction(tr("&Close"), agm->file);
+    action = new QAction(QStringLiteral("关闭文件"), agm->file);
     action->setIcon(QIcon(":/icons/close.svg"));
     action->setShortcut(QKeySequence::Close);
     action->setShortcutContext(Qt::WidgetShortcut);
     action->setObjectName("FileClose");
     a_map["FileClose"] = action;
 
-	action = new QAction(tr("Close All"), agm->file);
+    action = new QAction(QStringLiteral("关闭所有文件"), agm->file);
 	action->setIcon(QIcon(":/icons/close_all.svg"));
 	QKeySequence shortcut = QKeySequence::Close;
 	action->setShortcut(QKeySequence("Shift+" + shortcut.toString()));
@@ -1071,7 +1071,7 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
 	action->setObjectName("FileCloseAll");
 	a_map["FileCloseAll"] = action;
 
-    action = new QAction(tr("Export as PDF"), agm->file);
+    action = new QAction(QStringLiteral("导出为PDF文件"), agm->file);
     action->setIcon(QIcon(":/icons/export_pdf.svg"));
     connect(action, SIGNAL(triggered()), main_window, SLOT(slotFilePrintPDF()));
     action->setObjectName("FilePrintPDF");
@@ -1085,7 +1085,7 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
 
     // <[~ View ~]>
 
-    action = new QAction(tr("&Fullscreen"), agm->view);
+    action = new QAction(QStringLiteral("全屏"), agm->view);
     #if defined(Q_OS_LINUX)
         action->setShortcut(QKeySequence("F11"));
     #else
@@ -1096,7 +1096,7 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
     action->setObjectName("Fullscreen");
     a_map["Fullscreen"] = action;
 
-    action = new QAction(tr("&Grid"), agm->view);
+    action = new QAction(QStringLiteral("显示网格"), agm->view);
     action->setIcon(QIcon(":/icons/grid.svg"));
     action->setShortcut(QKeySequence(tr("Ctrl+G", "Toggle Grid")));
     action->setCheckable(true);
@@ -1106,16 +1106,16 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
     action->setObjectName("ViewGrid");
     a_map["ViewGrid"] = action;
 
-    action = new QAction(tr("&Draft"), agm->view);
+    action = new QAction(QStringLiteral("编辑模式"), agm->view);
     action->setIcon(QIcon(":/icons/draft.svg"));
     action->setCheckable(true);
-    action->setShortcut(QKeySequence(tr("Ctrl+D", "Toggle Draft Mode")));
+    action->setShortcut(QKeySequence(tr("Ctrl+D", QStringLiteral("切换编辑模式").toStdString().c_str())));
     connect(action, SIGNAL(toggled(bool)), main_window, SLOT(slotViewDraft(bool)));
     connect(main_window, SIGNAL(draftChanged(bool)), action, SLOT(setChecked(bool)));
     action->setObjectName("ViewDraft");
     a_map["ViewDraft"] = action;
 
-    action = new QAction(tr("&Statusbar"), agm->view);
+    action = new QAction(QStringLiteral("显示状态栏"), agm->view);
     action->setCheckable(true);
     action->setChecked(true);
     action->setShortcut(QKeySequence(tr("Ctrl+I", "Hide Statusbar")));
@@ -1177,21 +1177,21 @@ void LC_ActionFactory::fillActionContainer(QMap<QString, QAction*>& a_map, LC_Ac
     action->setObjectName("FloatingDockwidgetsToggle");
     a_map["FloatingDockwidgetsToggle"] = action;
 
-    action = new QAction(tr("Reload Style Sheet"), agm->options);
+    action = new QAction(QStringLiteral("重载主题"), agm->options);
     action->setShortcut(QKeySequence("Ctrl+T"));
     connect(action, SIGNAL(triggered()),
             main_window, SLOT(reloadStyleSheet()));
     action->setObjectName("ReloadStyleSheet");
     a_map["ReloadStyleSheet"] = action;
 
-    action = new QAction(tr("Menu Creator"), agm->widgets);
+    action = new QAction(QStringLiteral("菜单编辑器"), agm->widgets);
     action->setIcon(QIcon(":/icons/create_menu.svg"));
     connect(action, SIGNAL(triggered()),
             main_window, SLOT(invokeMenuCreator()));
     action->setObjectName("InvokeMenuCreator");
     a_map["InvokeMenuCreator"] = action;
 
-    action = new QAction(tr("Toolbar Creator"), agm->widgets);
+    action = new QAction(QStringLiteral("工具栏编辑器"), agm->widgets);
     action->setIcon(QIcon(":/icons/create_toolbar.svg"));
     connect(action, SIGNAL(triggered()),
             main_window, SLOT(invokeToolbarCreator()));
@@ -1207,7 +1207,8 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
 
     // <[~ Edit ~]>
 
-    action = new QAction(tr("&Selection pointer"), agm->edit);
+    action = new QAction(
+                QStringLiteral("选择指针"), agm->edit);
     if (using_theme)
         action->setIcon(QIcon::fromTheme("go-previous-view", QIcon(":/icons/cursor.svg")));
     else
@@ -1217,7 +1218,7 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
     action->setObjectName("EditKillAllActions");
     a_map["EditKillAllActions"] = action;
 
-    action = new QAction(tr("&Undo"), agm->edit);
+    action = new QAction(QStringLiteral("撤销"), agm->edit);
     if (using_theme)
         action->setIcon(QIcon::fromTheme("edit-undo", QIcon(":/icons/undo.svg")));
     else
@@ -1228,7 +1229,7 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
     action->setObjectName("EditUndo");
     a_map["EditUndo"] = action;
 
-    action = new QAction(tr("&Redo"), agm->edit);
+    action = new QAction(QStringLiteral("重做"), agm->edit);
     if (using_theme)
         action->setIcon(QIcon::fromTheme("edit-redo", QIcon(":/icons/redo.svg")));
     else
@@ -1239,7 +1240,7 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
     action->setObjectName("EditRedo");
     a_map["EditRedo"] = action;
 
-    action = new QAction(tr("Cu&t"), agm->edit);
+    action = new QAction(QStringLiteral("剪切"), agm->edit);
     if (using_theme)
         action->setIcon(QIcon::fromTheme("edit-cut", QIcon(":/icons/cut.svg")));
     else
@@ -1250,7 +1251,7 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
     action->setObjectName("EditCut");
     a_map["EditCut"] = action;
 
-    action = new QAction(tr("&Copy"), agm->edit);
+    action = new QAction(QStringLiteral("拷贝"), agm->edit);
     if (using_theme)
         action->setIcon(QIcon::fromTheme("edit-copy", QIcon(":/icons/copy.svg")));
     else
@@ -1261,7 +1262,7 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
     action->setObjectName("EditCopy");
     a_map["EditCopy"] = action;
 
-    action = new QAction(tr("&Paste"), agm->edit);
+    action = new QAction(QStringLiteral("粘贴"), agm->edit);
     if (using_theme)
         action->setIcon(QIcon::fromTheme("edit-paste", QIcon(":/icons/paste.svg")));
     else
@@ -1274,7 +1275,7 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
 
     // <[~ Zoom ~]>
 
-    action = new QAction(tr("Zoom &In"), agm->view);
+    action = new QAction(QStringLiteral("缩放-放大"), agm->view);
     if (using_theme)
         action->setIcon(QIcon::fromTheme("zoom-in", QIcon(":/icons/zoom_in.svg")));
     else
@@ -1284,7 +1285,7 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
     action->setObjectName("ZoomIn");
     a_map["ZoomIn"] = action;
 
-    action = new QAction(tr("Zoom &Out"), agm->view);
+    action = new QAction(QStringLiteral("缩放-缩小"), agm->view);
     if (using_theme)
         action->setIcon(QIcon::fromTheme("zoom-out", QIcon(":/icons/zoom_out.svg")));
     else
@@ -1294,7 +1295,7 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
     action->setObjectName("ZoomOut");
     a_map["ZoomOut"] = action;
 
-    action = new QAction(tr("&Auto Zoom"), agm->view);
+    action = new QAction(QStringLiteral("自动缩放"), agm->view);
     if (using_theme)
         action->setIcon(QIcon::fromTheme("zoom-fit-best", QIcon(":/icons/zoom_auto.svg")));
     else
@@ -1303,7 +1304,7 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
     action->setObjectName("ZoomAuto");
     a_map["ZoomAuto"] = action;
 
-    action = new QAction(tr("Previous &View"), agm->view);
+    action = new QAction(QStringLiteral("上一个视图"), agm->view);
     if (using_theme)
         action->setIcon(QIcon::fromTheme("zoom-previous", QIcon(":/icons/zoom_previous.svg")));
     else
@@ -1314,7 +1315,7 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
     action->setObjectName("ZoomPrevious");
     a_map["ZoomPrevious"] = action;
 
-    action = new QAction(tr("&Redraw"), agm->view);
+    action = new QAction(QStringLiteral("重绘"), agm->view);
     if (using_theme)
         action->setIcon(QIcon::fromTheme("view-refresh", QIcon(":/icons/redraw.svg")));
     else
@@ -1325,7 +1326,7 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
     action->setObjectName("ZoomRedraw");
     a_map["ZoomRedraw"] = action;
 
-    action = new QAction(tr("&Window Zoom"), agm->other);
+    action = new QAction(QStringLiteral("窗口缩放"), agm->other);
     action->setCheckable(true);
     if (using_theme)
         action->setIcon(QIcon::fromTheme("zoom-select", QIcon(":/icons/zoom_window.svg")));
@@ -1337,7 +1338,7 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
 
     // <[~ File ~]>
 
-    action = new QAction(tr("&New"), agm->file);
+    action = new QAction(QStringLiteral("新建文件"), agm->file);
     if (using_theme)
         action->setIcon(QIcon::fromTheme("document-new", QIcon(":/icons/new.svg")));
     else
@@ -1347,7 +1348,7 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
     action->setObjectName("FileNew");
     a_map["FileNew"] = action;
 
-    action = new QAction(tr("New From &Template"), agm->file);
+    action = new QAction(QStringLiteral("从模板中新建文件"), agm->file);
     if (using_theme)
         action->setIcon(QIcon::fromTheme("document-new", QIcon(":/icons/new_from_template.svg")));
     else
@@ -1356,7 +1357,7 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
     action->setObjectName("FileNewTemplate");
     a_map["FileNewTemplate"] = action;
 
-    action = new QAction(tr("&Open..."), agm->file);
+    action = new QAction(QStringLiteral("打开文件"), agm->file);
     if (using_theme)
         action->setIcon(QIcon::fromTheme("document-open", QIcon(":/icons/open.svg")));
     else
@@ -1366,7 +1367,7 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
     action->setObjectName("FileOpen");
     a_map["FileOpen"] = action;
 
-    action = new QAction(tr("&Save"), agm->file);
+    action = new QAction(QStringLiteral("保存文件"), agm->file);
     if (using_theme)
         action->setIcon(QIcon::fromTheme("document-save", QIcon(":/icons/save.svg")));
     else
@@ -1376,7 +1377,7 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
     action->setObjectName("FileSave");
     a_map["FileSave"] = action;
 
-    action = new QAction(tr("Save &as..."), agm->file);
+    action = new QAction(QStringLiteral("另存为..."), agm->file);
     if (using_theme)
         action->setIcon(QIcon::fromTheme("document-save-as", QIcon(":/icons/save_as.svg")));
     else
@@ -1386,7 +1387,7 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
     action->setObjectName("FileSaveAs");
     a_map["FileSaveAs"] = action;
 
-	action = new QAction(tr("Save A&ll..."), agm->file);
+    action = new QAction(QStringLiteral("保存所有文件"), agm->file);
 	action->setIcon(QIcon(":/icons/save_all.svg"));
 	QKeySequence shortcut = QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_S);
 	// only define this shortcut for platforms not already using it for save as
@@ -1396,7 +1397,7 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
 	action->setObjectName("FileSaveAll");
 	a_map["FileSaveAll"] = action;
 
-    action = new QAction(tr("&Print..."), agm->file);
+    action = new QAction(QStringLiteral("打印文件"), agm->file);
     if (using_theme)
         action->setIcon(QIcon::fromTheme("document-print", QIcon(":/icons/print.svg")));
     else
@@ -1407,7 +1408,7 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
     action->setObjectName("FilePrint");
     a_map["FilePrint"] = action;
 
-    action = new QAction(tr("Print Pre&view"), agm->file);
+    action = new QAction(QStringLiteral("打印预览"), agm->file);
     if (using_theme)
         action->setIcon(QIcon::fromTheme("document-print-preview", QIcon(":/icons/print_preview.svg")));
     else
@@ -1418,7 +1419,7 @@ void LC_ActionFactory::commonActions(QMap<QString, QAction*>& a_map, LC_ActionGr
     action->setObjectName("FilePrintPreview");
     a_map["FilePrintPreview"] = action;
 
-    action = new QAction(tr("&Quit"), agm->file);
+    action = new QAction(QStringLiteral("退出"), agm->file);
     if (using_theme)
         action->setIcon(QIcon::fromTheme("application-exit", QIcon(":/icons/quit.svg")));
     else

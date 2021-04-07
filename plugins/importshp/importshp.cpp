@@ -56,7 +56,7 @@ dibSHP::dibSHP(QWidget *parent) :  QDialog(parent)
     setWindowTitle(tr("Import ESRI Shapefile"));
     QVBoxLayout *mainLayout = new QVBoxLayout;
 
-    QPushButton *filebut = new QPushButton(tr("File..."));
+    QPushButton *filebut = new QPushButton(QStringLiteral("文件..."));
     fileedit = new QLineEdit();
     QHBoxLayout *lofile = new QHBoxLayout;
     lofile->addWidget(filebut);
@@ -72,7 +72,7 @@ dibSHP::dibSHP(QWidget *parent) :  QDialog(parent)
     loformat->addStretch();
     mainLayout->addLayout(loformat);
 
-    QGroupBox *laybox = new QGroupBox(tr("Layer"));
+    QGroupBox *laybox = new QGroupBox(QStringLiteral("图层"));
     radiolay1 = new QRadioButton(tr("Current"));
     QRadioButton *radiolay2 = new QRadioButton(tr("From data:"));
     layerdata = new QComboBox();
@@ -138,8 +138,8 @@ dibSHP::dibSHP(QWidget *parent) :  QDialog(parent)
     mainLayout->addWidget(pointbox);
 
     QHBoxLayout *loaccept = new QHBoxLayout;
-    QPushButton *acceptbut = new QPushButton(tr("Accept"));
-    QPushButton *cancelbut = new QPushButton(tr("Cancel"));
+    QPushButton *acceptbut = new QPushButton(QStringLiteral("应用"));
+    QPushButton *cancelbut = new QPushButton(QStringLiteral("取消"));
     loaccept->addStretch();
     loaccept->addWidget(acceptbut);
     loaccept->addWidget(cancelbut);
@@ -437,7 +437,7 @@ dibSHP::~dibSHP()
 void dibSHP::readSettings()
  {
     QString str;
-    QSettings settings(QSettings::IniFormat, QSettings::UserScope, "LibreCAD", "importshp");
+    QSettings settings(QSettings::IniFormat, QSettings::UserScope, "正CAD", "importshp");
     QPoint pos = settings.value("pos", QPoint(200, 200)).toPoint();
     QSize size = settings.value("size", QSize(325,425)).toSize();
     str = settings.value("lastfile").toString();
@@ -448,7 +448,7 @@ void dibSHP::readSettings()
 
 void dibSHP::writeSettings()
  {
-    QSettings settings(QSettings::IniFormat, QSettings::UserScope, "LibreCAD", "importshp");
+    QSettings settings(QSettings::IniFormat, QSettings::UserScope, "正CAD", "importshp");
     settings.setValue("pos", pos());
     settings.setValue("size", size());
     settings.setValue("lastfile", fileedit->text());

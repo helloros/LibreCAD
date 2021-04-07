@@ -137,16 +137,16 @@ void LC_ActionDrawLinePolygonCenTan::coordinateEvent(RS_CoordinateEvent* e) {
 void LC_ActionDrawLinePolygonCenTan::updateMouseButtonHints() {
     switch (getStatus()) {
     case SetCenter:
-        RS_DIALOGFACTORY->updateMouseWidget(tr("Specify center"),
+        RS_DIALOGFACTORY->updateMouseWidget(QStringLiteral("指定中心").toStdString().c_str(),
                                             "");
         break;
 
     case SetTangent:
-        RS_DIALOGFACTORY->updateMouseWidget(tr("Specify a tangent"), "");
+        RS_DIALOGFACTORY->updateMouseWidget(QStringLiteral("指定切线").toStdString().c_str(), "");
         break;
 
     case SetNumber:
-        RS_DIALOGFACTORY->updateMouseWidget(tr("Enter number:"), "");
+        RS_DIALOGFACTORY->updateMouseWidget(QStringLiteral("输入数字").toStdString().c_str(), "");
         break;
 
     default:

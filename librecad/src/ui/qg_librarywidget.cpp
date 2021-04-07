@@ -67,13 +67,13 @@ QG_LibraryWidget::QG_LibraryWidget(QWidget* parent, const char* name, Qt::Window
     ivPreview = new QListView(this);
     ivPreview->setViewMode(QListView::IconMode);
     vboxLayout->addWidget(ivPreview);
-    bInsert = new QPushButton(tr("Insert"), this);
+    bInsert = new QPushButton(QStringLiteral("插入"), this);
     vboxLayout->addWidget(bInsert);
 
     QHBoxLayout *refreshButtonsLayout = new QHBoxLayout(this);
-    bRefresh = new QPushButton(tr("Refresh"), this);
+    bRefresh = new QPushButton(QStringLiteral("刷新"), this);
     refreshButtonsLayout->addWidget(bRefresh);
-    bRebuild = new QPushButton(tr("Rebuild"), this);
+    bRebuild = new QPushButton(QStringLiteral("重新构建"), this);
     refreshButtonsLayout->addWidget(bRebuild);
     vboxLayout->addLayout(refreshButtonsLayout);
 

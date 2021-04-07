@@ -26,7 +26,16 @@
    <string>Pen</string>
   </property>
   <layout class="QGridLayout">
-   <property name="margin">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
     <number>0</number>
    </property>
    <property name="spacing">
@@ -35,7 +44,7 @@
    <item row="0" column="0">
     <widget class="QGroupBox" name="bgPen">
      <property name="title">
-      <string>Pen</string>
+      <string>画笔</string>
      </property>
      <layout class="QGridLayout">
       <item row="3" column="1">
@@ -63,7 +72,7 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>Line type:</string>
+         <string>线条类型</string>
         </property>
         <property name="wordWrap">
          <bool>false</bool>
@@ -95,7 +104,7 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>Width:</string>
+         <string>宽度</string>
         </property>
         <property name="wordWrap">
          <bool>false</bool>
@@ -117,7 +126,7 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>Color:</string>
+         <string>颜色</string>
         </property>
         <property name="wordWrap">
          <bool>false</bool>
@@ -150,8 +159,6 @@
    <header>qg_linetypebox.h</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../../../res/extui/extui.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

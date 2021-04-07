@@ -76,8 +76,8 @@ void QG_LineTypeBox::init(bool showByLayer, bool showUnchanged) {
 	}
 
     if (showByLayer) {
-        addItem(QIcon(":ui/linetype00.png"), tr("By Layer"), RS2::LineByLayer);
-        addItem(QIcon(":ui/linetype00.png"), tr("By Block"), RS2::LineByBlock);
+        addItem(QIcon(":ui/linetype00.png"), QStringLiteral("按图层"), RS2::LineByLayer);
+        addItem(QIcon(":ui/linetype00.png"), QStringLiteral("按块"), RS2::LineByBlock);
     }
     addItem(QIcon(":ui/linetype00.png"), tr("No Pen"),RS2::NoPen);
     addItem(QIcon(":ui/linetype01.png"), tr("Continuous"), RS2::SolidLine);
@@ -186,7 +186,7 @@ void QG_LineTypeBox::setLayerLineType(RS2::LineType t) {
         }
 
         setItemIcon(0, QIcon(pixmap));
-        setItemText(0, tr("By Layer"));
+        setItemText(0, QStringLiteral("按图层"));
 
         // needed for the first time a layer is added:
         slotLineTypeChanged(currentIndex());

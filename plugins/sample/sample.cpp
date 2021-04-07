@@ -57,25 +57,25 @@ lc_Sampledlg::lc_Sampledlg(QWidget *parent) :  QDialog(parent)
     QDoubleValidator *val = new QDoubleValidator(0);
     QGridLayout *mainLayout = new QGridLayout;
 
-    label = new QLabel(tr("Start X:"));
+    label = new QLabel(QStringLiteral("起始点X:"));
     mainLayout->addWidget(label, 0, 0);
     startxedit = new QLineEdit();
     startxedit->setValidator(val);
     mainLayout->addWidget(startxedit, 1, 0);
 
-    label = new QLabel(tr("Start Y:"));
+    label = new QLabel(QStringLiteral("起始点Y:"));
     mainLayout->addWidget(label, 0, 1);
     startyedit = new QLineEdit();
     startyedit->setValidator(val);
     mainLayout->addWidget(startyedit, 1, 1);
 
-    label = new QLabel(tr("End X:"));
+    label = new QLabel(QStringLiteral("终点X:"));
     mainLayout->addWidget(label, 2, 0);
     endxedit = new QLineEdit();
     endxedit->setValidator(val);
     mainLayout->addWidget(endxedit, 3, 0);
 
-    label = new QLabel(tr("End Y:"));
+    label = new QLabel(QStringLiteral("终点Y:"));
     mainLayout->addWidget(label, 2, 1);
     endyedit = new QLineEdit();
     endyedit->setValidator(val);
@@ -83,12 +83,12 @@ lc_Sampledlg::lc_Sampledlg(QWidget *parent) :  QDialog(parent)
 
 
     QHBoxLayout *loaccept = new QHBoxLayout;
-    QPushButton *acceptbut = new QPushButton(tr("Accept"));
+    QPushButton *acceptbut = new QPushButton(QStringLiteral("应用"));
     loaccept->addStretch();
     loaccept->addWidget(acceptbut);
     mainLayout->addLayout(loaccept, 4, 0);
 
-    QPushButton *cancelbut = new QPushButton(tr("Cancel"));
+    QPushButton *cancelbut = new QPushButton(QStringLiteral("取消"));
     QHBoxLayout *locancel = new QHBoxLayout;
     locancel->addWidget(cancelbut);
     locancel->addStretch();
@@ -104,10 +104,10 @@ lc_Sampledlg::lc_Sampledlg(QWidget *parent) :  QDialog(parent)
 
 bool lc_Sampledlg::failGUI(QString *msg)
 {
-    if (startxedit->text().isEmpty()) {msg->insert(0, tr("Start X is empty")); return true;}
-    if (startyedit->text().isEmpty()) {msg->insert(0, tr("Start Y is empty")); return true;}
-    if (endxedit->text().isEmpty()) {msg->insert(0, tr("End X is empty")); return true;}
-    if (endyedit->text().isEmpty()) {msg->insert(0, tr("End Y is empty")); return true;}
+    if (startxedit->text().isEmpty()) {msg->insert(0, QStringLiteral("起始点X为空")); return true;}
+    if (startyedit->text().isEmpty()) {msg->insert(0, QStringLiteral("起始点Y为空")); return true;}
+    if (endxedit->text().isEmpty()) {msg->insert(0, QStringLiteral("终点X为空")); return true;}
+    if (endyedit->text().isEmpty()) {msg->insert(0, QStringLiteral("终点Y为空")); return true;}
     return false;
 }
 
@@ -150,7 +150,7 @@ void lc_Sampledlg::closeEvent(QCloseEvent *event)
 void lc_Sampledlg::readSettings()
  {
     QString str;
-    QSettings settings(QSettings::IniFormat, QSettings::UserScope, "LibreCAD", "sample_plugin");
+    QSettings settings(QSettings::IniFormat, QSettings::UserScope, "正CAD", "sample_plugin");
     QPoint pos = settings.value("pos", QPoint(200, 200)).toPoint();
     QSize size = settings.value("size", QSize(430,140)).toSize();
 
@@ -165,7 +165,7 @@ void lc_Sampledlg::readSettings()
 
 void lc_Sampledlg::writeSettings()
  {
-    QSettings settings(QSettings::IniFormat, QSettings::UserScope, "LibreCAD", "sample_plugin");
+    QSettings settings(QSettings::IniFormat, QSettings::UserScope, "正CAD", "sample_plugin");
     settings.setValue("pos", pos());
     settings.setValue("size", size());
 

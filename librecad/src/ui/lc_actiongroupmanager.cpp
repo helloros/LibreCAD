@@ -68,7 +68,8 @@ LC_ActionGroupManager::LC_ActionGroupManager(QObject* parent)
     dimension->setObjectName(QObject::tr("Dimension"));
     info->setObjectName(QObject::tr("Info"));
     layer->setObjectName(QObject::tr("Layer"));
-    line->setObjectName(QObject::tr("Line"));
+    line->setObjectName(QObject::tr(""
+                                    "qLine"));
     modify->setObjectName(QObject::tr("Modify"));
     options->setObjectName(QObject::tr("Options"));
     other->setObjectName(QObject::tr("Other"));

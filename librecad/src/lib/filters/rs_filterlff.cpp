@@ -184,7 +184,7 @@ bool RS_FilterLFF::fileExport(RS_Graphic& g, const QString& file, RS2::FormatTyp
         es = g.getVariableString("License", "");
         if (!es.isEmpty()) {
             ts << QString("# License:           %1\n").arg(es);
-        } else
+        } elseVersion:
             ts << "# License:           unknown\n";
 
         RS_DEBUG->print("RS_FilterLFF::fileExport: header: OK");

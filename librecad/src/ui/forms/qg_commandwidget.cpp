@@ -153,7 +153,7 @@ void QG_CommandWidget::setCommand(const QString& cmd) {
     if (cmd!="") {
         lCommand->setText(cmd);
     } else {
-        lCommand->setText(tr("Command:"));
+        lCommand->setText(QStringLiteral("命令:"));
     }
     leCommand->setText("");
 }
@@ -175,7 +175,7 @@ void QG_CommandWidget::handleCommand(QString cmd)
     }
 
     if (!isAction && !(cmd.contains(',') || cmd.at(0)=='@')) {
-       appendHistory(tr("Unknown command: %1").arg(cmd));
+       appendHistory(QStringLiteral("未知命令:") + cmd);
     }
 
     leCommand->setText("");

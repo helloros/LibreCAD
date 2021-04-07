@@ -44,13 +44,13 @@ LC_ActionLayersToggleConstruction::LC_ActionLayersToggleConstruction(
     RS_EntityContainer& container,
     RS_GraphicView& graphicView,
     RS_Layer* layer)
-        : RS_ActionInterface("Toggle Construction Layer", container, graphicView)
+        : RS_ActionInterface(QStringLiteral("切换图层").toStdString().c_str(), container, graphicView)
         , a_layer(layer)
 {}
 
 
 void LC_ActionLayersToggleConstruction::trigger() {
-    RS_DEBUG->print("toggle layer construction");
+    RS_DEBUG->print("切换图层");
     if (graphic) {
         RS_LayerList* ll = graphic->getLayerList();
         unsigned cnt = 0;

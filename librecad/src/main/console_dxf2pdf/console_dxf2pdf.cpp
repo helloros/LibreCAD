@@ -50,8 +50,8 @@ int console_dxf2pdf(int argc, char* argv[])
     RS_DEBUG->setLevel(RS_Debug::D_NOTHING);
 
     QApplication app(argc, argv);
-    QCoreApplication::setOrganizationName("LibreCAD");
-    QCoreApplication::setApplicationName("LibreCAD");
+    QCoreApplication::setOrganizationName("正CAD");
+    QCoreApplication::setApplicationName("正CAD");
     QCoreApplication::setApplicationVersion(XSTR(LC_VERSION));
 
     QFileInfo prgInfo(QFile::decodeName(argv[0]));

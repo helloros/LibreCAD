@@ -38,7 +38,7 @@ RS_ActionLayersToggleLock::RS_ActionLayersToggleLock(
         RS_EntityContainer& container,
         RS_GraphicView& graphicView,
         RS_Layer* layer)
-    : RS_ActionInterface("Toggle Layer Visibility" ,container, graphicView)
+    : RS_ActionInterface(QStringLiteral("切换图层可见性").toStdString().c_str(),container, graphicView)
     , a_layer(layer)
 {}
 

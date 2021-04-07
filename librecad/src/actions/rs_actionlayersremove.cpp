@@ -34,7 +34,7 @@
 
 RS_ActionLayersRemove::RS_ActionLayersRemove(RS_EntityContainer& container,
         RS_GraphicView& graphicView)
-        :RS_ActionInterface("Remove Layer", container, graphicView) {}
+        :RS_ActionInterface(QStringLiteral("删除图层").toStdString().c_str(), container, graphicView) {}
 
 
 void RS_ActionLayersRemove::trigger() {

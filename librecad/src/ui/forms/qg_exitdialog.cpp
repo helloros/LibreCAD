@@ -120,7 +120,7 @@ void QG_ExitDialog::setForce(bool force) {
 void QG_ExitDialog::setShowSaveAll(bool show)
 {
 	ui->buttonBox->button(QDialogButtonBox::SaveAll)->setVisible(show);
-	QString close = show ? tr("Close All") : tr("Close");
+    QString close = show ? QStringLiteral("全部关闭") : QStringLiteral("关闭");
 	ui->buttonBox->button(QDialogButtonBox::Close)->setText(close);
 }
 

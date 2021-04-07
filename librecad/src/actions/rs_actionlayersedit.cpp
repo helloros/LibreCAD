@@ -36,7 +36,7 @@
 
 RS_ActionLayersEdit::RS_ActionLayersEdit(RS_EntityContainer& container,
         RS_GraphicView& graphicView)
-        :RS_ActionInterface("Edit Layer", container, graphicView) {}
+        :RS_ActionInterface(QStringLiteral("编辑图层").toStdString().c_str(), container, graphicView) {}
 
 void RS_ActionLayersEdit::trigger() {
     RS_DEBUG->print("RS_ActionLayersEdit::trigger");

@@ -41,12 +41,12 @@ RS_ActionLayersTogglePrint::RS_ActionLayersTogglePrint(
     RS_EntityContainer& container,
     RS_GraphicView& graphicView,
     RS_Layer* layer)
-        : RS_ActionInterface("Toggle Layer Printing", container, graphicView)
+        : RS_ActionInterface(QStringLiteral("切换图层打印").toStdString().c_str(), container, graphicView)
         , a_layer(layer)
 {}
 
 void RS_ActionLayersTogglePrint::trigger() {
-    RS_DEBUG->print("toggle layer printing");
+    RS_DEBUG->print("切换图层打印");
     if (graphic) {
         RS_LayerList* ll = graphic->getLayerList();
         unsigned cnt = 0;

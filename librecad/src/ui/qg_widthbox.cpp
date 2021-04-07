@@ -75,8 +75,8 @@ void QG_WidthBox::init(bool showByLayer, bool showUnchanged) {
         addItem(QIcon(":ui/width00.png"), tr("- Unchanged -"));
     }
     if (showByLayer) {
-        addItem(QIcon(":ui/width00.png"), tr("By Layer"));
-        addItem(QIcon(":ui/width00.png"), tr("By Block"));
+        addItem(QIcon(":ui/width00.png"), QStringLiteral("按图层"));
+        addItem(QIcon(":ui/width00.png"), QStringLiteral("按块"));
     }
     addItem(QIcon(":ui/width01.png"), tr("Default"));
     addItem(QIcon(":ui/width01.png"), tr("0.00mm"));
@@ -283,7 +283,7 @@ void QG_WidthBox::setLayerWidth(RS2::LineWidth w) {
         }
 
         setItemIcon(0, pixmap);
-        setItemText(0, tr("By Layer"));
+        setItemText(0, QStringLiteral("按图层"));
 
         // needed for the first time a layer is added:
         slotWidthChanged(currentIndex());

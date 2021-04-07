@@ -285,23 +285,23 @@ QStringList RS_ActionDrawEllipse4Points::getAvailableCommands() {
 void RS_ActionDrawEllipse4Points::updateMouseButtonHints() {
 	switch (getStatus()) {
 	case SetPoint1:
-		RS_DIALOGFACTORY->updateMouseWidget(tr("Specify the first point on ellipse"),
-											tr("Cancel"));
+        RS_DIALOGFACTORY->updateMouseWidget(QStringLiteral("在椭圆上指定第一个点"),
+                                            QStringLiteral("取消"));
 		break;
 
 	case SetPoint2:
-		RS_DIALOGFACTORY->updateMouseWidget(tr("Specify the second point on ellipse"),
-											tr("Back"));
+        RS_DIALOGFACTORY->updateMouseWidget(QStringLiteral("在椭圆上指定第二个点"),
+                                            QStringLiteral("后退"));
 		break;
 
 	case SetPoint3:
-		RS_DIALOGFACTORY->updateMouseWidget(tr("Specify the third point on ellipse"),
-											tr("Back"));
+        RS_DIALOGFACTORY->updateMouseWidget(QStringLiteral("在椭圆上指定第三个点"),
+                                            QStringLiteral("后退"));
 		break;
 
 	case SetPoint4:
-		RS_DIALOGFACTORY->updateMouseWidget(tr("Specify the fourth point on ellipse"),
-											tr("Back"));
+        RS_DIALOGFACTORY->updateMouseWidget(QStringLiteral("在椭圆上指定第四个点"),
+                                            QStringLiteral("后退"));
 		break;
 
 	default:

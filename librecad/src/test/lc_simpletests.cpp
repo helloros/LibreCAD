@@ -65,17 +65,17 @@ LC_SimpleTests::LC_SimpleTests(QWidget *parent):
 				this, SLOT(slotTestInsertBlock()));
 		testMenu->addAction(action);
 
-		action = new QAction("Insert MText", this);
+        action = new QAction(QStringLiteral("插入富文本"), this);
 		connect(action, SIGNAL(triggered()),
 				this, SLOT(slotTestInsertMText()));
 		testMenu->addAction(action);
 
-		action = new QAction("Insert Text", this);
+        action = new QAction(QStringLiteral("插入文本"), this);
 		connect(action, SIGNAL(triggered()),
 				this, SLOT(slotTestInsertText()));
 		testMenu->addAction(action);
 
-		action = new QAction(tr("Insert Image"), this);
+        action = new QAction(QStringLiteral("插入图片"), this);
 		connect(action, SIGNAL(triggered()),
 				this, SLOT(slotTestInsertImage()));
 		testMenu->addAction(action);
@@ -85,7 +85,7 @@ LC_SimpleTests::LC_SimpleTests(QWidget *parent):
 				this, SLOT(slotTestUnicode()));
 		testMenu->addAction(action);
 
-		action = new QAction("Insert Ellipse", this);
+        action = new QAction(QStringLiteral("插入椭圆"), this);
 		connect(action, SIGNAL(triggered()),
 				this, SLOT(slotTestInsertEllipse()));
 		testMenu->addAction(action);
@@ -95,17 +95,17 @@ LC_SimpleTests::LC_SimpleTests(QWidget *parent):
 				this, SLOT(slotTestMath01()));
 		testMenu->addAction(action);
 
-		action = new QAction("Resize to 640x480", this);
+        action = new QAction(QStringLiteral("重置大小为640x480"), this);
 		connect(action, SIGNAL(triggered()),
 				this, SLOT(slotTestResize640()));
 		testMenu->addAction(action);
 
-		action = new QAction("Resize to 800x600", this);
+        action = new QAction(QStringLiteral("重置大小为800x600"), this);
 		connect(action, SIGNAL(triggered()),
 				this, SLOT(slotTestResize800()));
 		testMenu->addAction(action);
 
-		action = new QAction("Resize to 1024x768", this);
+        action = new QAction(QStringLiteral("重置大小为1024x768"), this);
 		connect(action, SIGNAL(triggered()),
 				this, SLOT(slotTestResize1024()));
 		testMenu->addAction(action);
@@ -801,7 +801,7 @@ void LC_SimpleTests::slotTestInsertMText() {
 								RS_MTextData::LeftToRight,
 								RS_MTextData::Exact,
 								1.0,
-								"LibreCAD",
+                                "正CAD",
 								"iso",
 								0.0);
 		text = new RS_MText(graphic, textData);
@@ -837,7 +837,7 @@ void LC_SimpleTests::slotTestInsertText() {
 							   RS_TextData::VABaseline,
 							   RS_TextData::HALeft,
 							   RS_TextData::None,
-							   "LibreCAD",
+                               "正CAD",
 							   "iso",
 							   0.0);
 		text = new RS_Text(graphic, textData);

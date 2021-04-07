@@ -76,7 +76,7 @@ void LC_Gear::execComm(Document_Interface *doc,
 
 lc_Geardlg::lc_Geardlg(QWidget *parent) :
     QDialog(parent),
-    settings(QSettings::IniFormat, QSettings::UserScope, "LibreCAD", "gear_plugin")
+    settings(QSettings::IniFormat, QSettings::UserScope, "正CAD", "gear_plugin")
 {
     const char *windowTitle = "Draw a gear";
 
@@ -140,8 +140,8 @@ lc_Geardlg::lc_Geardlg(QWidget *parent) :
     QCB (calcInterferenceBox,     tr("Calculate interference?"));
     QSB (n3Box,                   tr("Number of segments to draw (interference)"), 1, 1024,     8);
 
-    QPushButton *acceptbut = new QPushButton(tr("Accept"), this);
-    QPushButton *cancelbut = new QPushButton(tr("Cancel"), this);
+    QPushButton *acceptbut = new QPushButton(QStringLiteral("应用"), this);
+    QPushButton *cancelbut = new QPushButton(QStringLiteral("取消"), this);
     QHBoxLayout *acceptLayout = new QHBoxLayout();
 
     acceptLayout->addStretch();

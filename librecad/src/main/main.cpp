@@ -78,8 +78,8 @@ int main(int argc, char** argv)
     RS_DEBUG->setLevel(RS_Debug::D_WARNING);
 
     LC_Application app(argc, argv);
-    QCoreApplication::setOrganizationName("LibreCAD");
-    QCoreApplication::setApplicationName("LibreCAD");
+    QCoreApplication::setOrganizationName("正CAD");
+    QCoreApplication::setApplicationName("正CAD");
     QCoreApplication::setApplicationVersion(XSTR(LC_VERSION));
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 7, 0))

@@ -456,7 +456,7 @@ QString divide::getStrData( Plug_Entity *ent )
 
     //common entity data
     ent->getData(&data);
-    strData  = strCommon.arg(tr("Layer")).arg(data.value(DPI::LAYER).toString());
+    strData  = strCommon.arg(QStringLiteral("图层").arg(data.value(DPI::LAYER).toString()));
     int col = data.value(DPI::COLOR).toInt();
     strData.append( strCommon.arg(tr("Color")).arg( ent->intColor2str(col)) );
     strData.append( strCommon.arg(tr("Line type"))

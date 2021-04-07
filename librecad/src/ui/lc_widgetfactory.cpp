@@ -199,47 +199,47 @@ void LC_WidgetFactory::createLeftSidebar(int columns, int icon_size)
 {
     LC_DockWidget* dock_line = new LC_DockWidget(main_window);
     dock_line->setObjectName("dock_line");
-    dock_line->setWindowTitle(QC_ApplicationWindow::tr("Line"));
+    dock_line->setWindowTitle(QStringLiteral("线"));
     dock_line->add_actions(line_actions, columns, icon_size);
 
     LC_DockWidget* dock_circle = new LC_DockWidget(main_window);
     dock_circle->setObjectName("dock_circle");
-    dock_circle->setWindowTitle(QC_ApplicationWindow::tr("Circle"));
+    dock_circle->setWindowTitle(QStringLiteral("圆"));
     dock_circle->add_actions(circle_actions, columns, icon_size);
 
     LC_DockWidget* dock_curve = new LC_DockWidget(main_window);
     dock_curve->setObjectName("dock_curve");
-    dock_curve->setWindowTitle(QC_ApplicationWindow::tr("Curve"));
+    dock_curve->setWindowTitle(QStringLiteral("曲线"));
     dock_curve->add_actions(curve_actions, columns, icon_size);
 
     LC_DockWidget* dock_ellipse = new LC_DockWidget(main_window);
     dock_ellipse->setObjectName("dock_ellipse");
-    dock_ellipse->setWindowTitle(QC_ApplicationWindow::tr("Ellipse"));
+    dock_ellipse->setWindowTitle(QStringLiteral("椭圆"));
     dock_ellipse->add_actions(ellipse_actions, columns, icon_size);
 
     LC_DockWidget* dock_polyline = new LC_DockWidget(main_window);
     dock_polyline->setObjectName("dock_polyline");
-    dock_polyline->setWindowTitle(QC_ApplicationWindow::tr("Polyline"));
+    dock_polyline->setWindowTitle(QStringLiteral("折线"));
     dock_polyline->add_actions(polyline_actions, columns, icon_size);
 
     LC_DockWidget* dock_select = new LC_DockWidget(main_window);
     dock_select->setObjectName("dock_select");
-    dock_select->setWindowTitle(QC_ApplicationWindow::tr("Select"));
+    dock_select->setWindowTitle(QStringLiteral("选择"));
     dock_select->add_actions(select_actions, columns, icon_size);
 
     LC_DockWidget* dock_dimension = new LC_DockWidget(main_window);
     dock_dimension->setObjectName("dock_dimension");
-    dock_dimension->setWindowTitle(QC_ApplicationWindow::tr("Dimension"));
+    dock_dimension->setWindowTitle(QStringLiteral("尺寸"));
     dock_dimension->add_actions(dimension_actions, columns, icon_size);
 
     LC_DockWidget* dock_modify = new LC_DockWidget(main_window);
     dock_modify->setObjectName("dock_modify");
-    dock_modify->setWindowTitle(QC_ApplicationWindow::tr("Modify"));
+    dock_modify->setWindowTitle(QStringLiteral("修改"));
     dock_modify->add_actions(modify_actions, columns, icon_size);
 
     LC_DockWidget* dock_info = new LC_DockWidget(main_window);
     dock_info->setObjectName("dock_info");
-    dock_info->setWindowTitle(QC_ApplicationWindow::tr("Info"));
+    dock_info->setWindowTitle(QStringLiteral("Info"));
     dock_info->add_actions(info_actions, columns, icon_size);
 
     main_window->addDockWidget(Qt::LeftDockWidgetArea, dock_line);
@@ -269,7 +269,7 @@ void LC_WidgetFactory::createLeftSidebar(int columns, int icon_size)
 void LC_WidgetFactory::createRightSidebar(QG_ActionHandler* action_handler)
 {
     QDockWidget* dock_layer = new QDockWidget(main_window);
-    dock_layer->setWindowTitle(QC_ApplicationWindow::tr("Layer List"));
+    dock_layer->setWindowTitle(QStringLiteral("图层清单"));
     dock_layer->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
     dock_layer->setObjectName("layer_dockwidget");
     layer_widget = new QG_LayerWidget(action_handler, dock_layer, "Layer");
@@ -279,7 +279,7 @@ void LC_WidgetFactory::createRightSidebar(QG_ActionHandler* action_handler)
     dock_layer->setWidget(layer_widget);
 
     QDockWidget* dock_block = new QDockWidget(main_window);
-    dock_block->setWindowTitle(QC_ApplicationWindow::tr("Block List"));
+    dock_block->setWindowTitle(QStringLiteral("块数据窗口"));
     dock_block->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
     dock_block->setObjectName("block_dockwidget");
     block_widget = new QG_BlockWidget(action_handler, dock_block, "Block");
@@ -289,7 +289,7 @@ void LC_WidgetFactory::createRightSidebar(QG_ActionHandler* action_handler)
     dock_block->setWidget(block_widget);
 
     QDockWidget* dock_library = new QDockWidget(main_window);
-    dock_library->setWindowTitle(QC_ApplicationWindow::tr("Library Browser"));
+    dock_library->setWindowTitle(QStringLiteral("库浏览器"));
     dock_library->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
     dock_library->setObjectName("library_dockwidget");
     library_widget = new QG_LibraryWidget(dock_library, "Library");
@@ -301,7 +301,7 @@ void LC_WidgetFactory::createRightSidebar(QG_ActionHandler* action_handler)
     dock_library->setWidget(library_widget);
     dock_library->resize(240, 400);
 
-    QDockWidget* dock_command = new QDockWidget(QC_ApplicationWindow::tr("Command line"), main_window);
+    QDockWidget* dock_command = new QDockWidget(QStringLiteral("命令行"), main_window);
     dock_command->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
     dock_command->setObjectName("command_dockwidget");
     command_widget = new QG_CommandWidget(dock_command, "Command");
@@ -323,14 +323,14 @@ void LC_WidgetFactory::createStandardToolbars(QG_ActionHandler* action_handler)
 {
     QSizePolicy toolBarPolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    QToolBar* file_toolbar = new QToolBar(QC_ApplicationWindow::tr("File"), main_window);
+    QToolBar* file_toolbar = new QToolBar(QStringLiteral("文件"), main_window);
     file_toolbar->setSizePolicy(toolBarPolicy);
     file_toolbar->setObjectName("file_toolbar");
     file_toolbar->addActions(file_actions);
     file_toolbar->addAction(a_map["FilePrint"]);
     file_toolbar->addAction(a_map["FilePrintPreview"]);
 
-    QToolBar* edit_toolbar = new QToolBar(QC_ApplicationWindow::tr("Edit"), main_window);
+    QToolBar* edit_toolbar = new QToolBar(QStringLiteral("编辑"), main_window);
     edit_toolbar->setSizePolicy(toolBarPolicy);
     edit_toolbar->setObjectName("edit_toolbar");
     edit_toolbar->addAction(a_map["EditKillAllActions"]);
@@ -342,7 +342,7 @@ void LC_WidgetFactory::createStandardToolbars(QG_ActionHandler* action_handler)
     edit_toolbar->addAction(a_map["EditCopy"]);
     edit_toolbar->addAction(a_map["EditPaste"]);
 
-    QToolBar* order_toolbar = new QToolBar(QC_ApplicationWindow::tr("Order"), main_window);
+    QToolBar* order_toolbar = new QToolBar(QStringLiteral("命令"), main_window);
     order_toolbar->setSizePolicy(toolBarPolicy);
     order_toolbar->setObjectName("order_toolbar");
     order_toolbar->addAction(a_map["OrderTop"]);
@@ -351,7 +351,7 @@ void LC_WidgetFactory::createStandardToolbars(QG_ActionHandler* action_handler)
     order_toolbar->addAction(a_map["OrderLower"]);
     order_toolbar->hide();
 
-    QToolBar* view_toolbar = new QToolBar(QC_ApplicationWindow::tr("View"), main_window);
+    QToolBar* view_toolbar = new QToolBar(QStringLiteral("视图"), main_window);
     view_toolbar->setObjectName("view_toolbar");
     view_toolbar->setSizePolicy(toolBarPolicy);
     view_toolbar->addAction(a_map["ViewGrid"]);
@@ -366,23 +366,23 @@ void LC_WidgetFactory::createStandardToolbars(QG_ActionHandler* action_handler)
     view_toolbar->addAction(a_map["ZoomPan"]);
 
     snap_toolbar = new QG_SnapToolBar(main_window, action_handler, ag_manager);
-    snap_toolbar->setWindowTitle(QC_ApplicationWindow::tr("Snap Selection"));
+    snap_toolbar->setWindowTitle(QStringLiteral("捕捉选择"));
     snap_toolbar->setSizePolicy(toolBarPolicy);
     snap_toolbar->setObjectName("snap_toolbar" );
     action_handler->set_snap_toolbar(snap_toolbar);
 
-    pen_toolbar = new QG_PenToolBar(QC_ApplicationWindow::tr("Pen"), main_window);
+    pen_toolbar = new QG_PenToolBar(QStringLiteral("画笔"), main_window);
     pen_toolbar->setSizePolicy(toolBarPolicy);
     pen_toolbar->setObjectName("pen_toolbar");
 
-    options_toolbar = new QToolBar(QC_ApplicationWindow::tr("Tool Options"), main_window);
+    options_toolbar = new QToolBar(QStringLiteral("工具箱"), main_window);
     options_toolbar->setSizePolicy(toolBarPolicy);
     options_toolbar->setObjectName("options_toolbar");
 
     // <[~ Dock Areas Toolbar ~]>
 
     QToolBar* dockareas_toolbar = new QToolBar(main_window);
-    dockareas_toolbar->setWindowTitle(QC_ApplicationWindow::tr("Dock Areas"));
+    dockareas_toolbar->setWindowTitle(QStringLiteral("停靠窗口"));
     dockareas_toolbar->setSizePolicy(toolBarPolicy);
     dockareas_toolbar->setObjectName("dockareas_toolbar");
     dockareas_toolbar->addAction(a_map["LeftDockAreaToggle"]);
@@ -419,55 +419,55 @@ void LC_WidgetFactory::createCADToolbars()
 {
     QSizePolicy toolBarPolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    QToolBar* line_toolbar = new QToolBar(QC_ApplicationWindow::tr("Line"), main_window);
+    QToolBar* line_toolbar = new QToolBar(QStringLiteral("线"), main_window);
     line_toolbar->setSizePolicy(toolBarPolicy);
     line_toolbar->setObjectName("line_toolbar");
     line_toolbar->addActions(line_actions);
     line_toolbar->hide();
 
-    QToolBar* circle_toolbar = new QToolBar(QC_ApplicationWindow::tr("Circle"), main_window);
+    QToolBar* circle_toolbar = new QToolBar(QStringLiteral("圆"), main_window);
     circle_toolbar->setSizePolicy(toolBarPolicy);
     circle_toolbar->setObjectName ("circle_toolbar");
     circle_toolbar->addActions(circle_actions);
     circle_toolbar->hide();
 
-    QToolBar* curve_toolbar = new QToolBar(QC_ApplicationWindow::tr("Curve"), main_window);
+    QToolBar* curve_toolbar = new QToolBar(QStringLiteral("曲线"), main_window);
     curve_toolbar->setSizePolicy(toolBarPolicy);
     curve_toolbar->setObjectName("curve_toolbar");
     curve_toolbar->addActions(curve_actions);
     curve_toolbar->hide();
 
-    QToolBar* ellipse_toolbar = new QToolBar(QC_ApplicationWindow::tr("Ellipse"), main_window);
+    QToolBar* ellipse_toolbar = new QToolBar(QStringLiteral("椭圆"), main_window);
     ellipse_toolbar->setSizePolicy(toolBarPolicy);
     ellipse_toolbar->setObjectName("ellipse_toolbar");
     ellipse_toolbar->addActions(ellipse_actions);
     ellipse_toolbar->hide();
 
-    QToolBar* polyline_toolbar = new QToolBar(QC_ApplicationWindow::tr("Polyline"), main_window);
+    QToolBar* polyline_toolbar = new QToolBar(QStringLiteral("折线"), main_window);
     polyline_toolbar->setSizePolicy(toolBarPolicy);
     polyline_toolbar->setObjectName("polyline_toolbar");
     polyline_toolbar->addActions(polyline_actions);
     polyline_toolbar->hide();
 
-    QToolBar* select_toolbar = new QToolBar(QC_ApplicationWindow::tr("Select"), main_window);
+    QToolBar* select_toolbar = new QToolBar(QStringLiteral("选择"), main_window);
     select_toolbar->setSizePolicy(toolBarPolicy);
     select_toolbar->setObjectName("select_toolbar");
     select_toolbar->addActions(select_actions);
     select_toolbar->hide();
 
-    QToolBar* dimension_toolbar = new QToolBar(QC_ApplicationWindow::tr("Dimension"), main_window);
+    QToolBar* dimension_toolbar = new QToolBar(QStringLiteral("尺寸"), main_window);
     dimension_toolbar->setSizePolicy(toolBarPolicy);
     dimension_toolbar->setObjectName("dimension_toolbar");
     dimension_toolbar->addActions(dimension_actions);
     dimension_toolbar->hide();
 
-    QToolBar* modify_toolbar = new QToolBar(QC_ApplicationWindow::tr("Modify"), main_window);
+    QToolBar* modify_toolbar = new QToolBar(QStringLiteral("修改"), main_window);
     modify_toolbar->setSizePolicy(toolBarPolicy);
     modify_toolbar->setObjectName("modify_toolbar");
     modify_toolbar->addActions(modify_actions);
     modify_toolbar->hide();
 
-    QToolBar* info_toolbar = new QToolBar(QC_ApplicationWindow::tr("Info"), main_window);
+    QToolBar* info_toolbar = new QToolBar(QStringLiteral("标注"), main_window);
     info_toolbar->setSizePolicy(toolBarPolicy);
     info_toolbar->setObjectName("info_toolbar");
     info_toolbar->addActions(info_actions);
@@ -488,7 +488,7 @@ QToolBar* LC_WidgetFactory::createCategoriesToolbar()
 {
     QSizePolicy toolBarPolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    QToolBar* categories_toolbar = new QToolBar(QC_ApplicationWindow::tr("Categories"), main_window);
+    QToolBar* categories_toolbar = new QToolBar(QStringLiteral("类别"), main_window);
     categories_toolbar->setSizePolicy(toolBarPolicy);
     categories_toolbar->setObjectName("categories_toolbar");
 
@@ -558,7 +558,7 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar)
     QMenu* sub_menu;
     // <[~ File ~]>
 
-    file_menu = new QMenu(QC_ApplicationWindow::tr("&File"), menu_bar);
+    file_menu = new QMenu(QStringLiteral("文件"), menu_bar);
     file_menu->setObjectName("File");
     file_menu->setTearOffEnabled(true);
 	file_menu->addAction(a_map["FileNew"]);
@@ -569,11 +569,11 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar)
 	file_menu->addAction(a_map["FileSaveAs"]);
 	file_menu->addAction(a_map["FileSaveAll"]);
 	file_menu->addSeparator();
-    sub_menu = file_menu->addMenu(QIcon(":/icons/import.svg"), QC_ApplicationWindow::tr("Import"));
+    sub_menu = file_menu->addMenu(QIcon(":/icons/import.svg"), QStringLiteral("导入"));
     sub_menu->setObjectName("Import");
     sub_menu->addAction(a_map["DrawImage"]);
     sub_menu->addAction(a_map["BlocksImport"]);
-    sub_menu = file_menu->addMenu(QIcon(":/icons/export.svg"), QC_ApplicationWindow::tr("Export"));
+    sub_menu = file_menu->addMenu(QIcon(":/icons/export.svg"), QStringLiteral("导出"));
     sub_menu->setObjectName("Export");
     sub_menu->addAction(a_map["FileExportMakerCam"]);
     sub_menu->addAction(a_map["FilePrintPDF"]);
@@ -589,7 +589,7 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar)
 
     // <[~ Options ~]>
 
-    QMenu* settings_menu = new QMenu(QC_ApplicationWindow::tr("&Options"), menu_bar);
+    QMenu* settings_menu = new QMenu(QStringLiteral("配置"), menu_bar);
     settings_menu->setObjectName("options_menu");
     settings_menu->setTearOffEnabled(true);
     settings_menu->addAction(a_map["OptionsGeneral"]);
@@ -600,7 +600,7 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar)
 
     // <[~ Edit ~]>
 
-    QMenu* edit_menu = new QMenu(QC_ApplicationWindow::tr("&Edit"), menu_bar);
+    QMenu* edit_menu = new QMenu(QStringLiteral("编辑"), menu_bar);
     edit_menu->setObjectName("Edit");
     edit_menu->setTearOffEnabled(true);
     edit_menu->addAction(a_map["EditKillAllActions"]);
@@ -615,13 +615,13 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar)
 
     // <[~ Plugins ~]>
 
-    QMenu* plugins_menu = new QMenu(QC_ApplicationWindow::tr("Pl&ugins"), menu_bar);
+    QMenu* plugins_menu = new QMenu(QStringLiteral("插件"), menu_bar);
     plugins_menu->setObjectName("plugins_menu");
     plugins_menu->setTearOffEnabled(true);
 
     // <[~ View ~]>
 
-    QMenu* view_menu = new QMenu(QC_ApplicationWindow::tr("&View"), menu_bar);
+    QMenu* view_menu = new QMenu(QStringLiteral("视图"), menu_bar);
     view_menu->setObjectName("view_menu");
     view_menu->setTearOffEnabled(true);
     view_menu->addAction(a_map["Fullscreen"]);
@@ -639,48 +639,48 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar)
 
     // <[~ Tools ~]>
 
-    QMenu* tools_menu = new QMenu(QC_ApplicationWindow::tr("&Tools"), menu_bar);
+    QMenu* tools_menu = new QMenu(QStringLiteral("工具"), menu_bar);
     tools_menu->setObjectName("tools_menu");
     tools_menu->setTearOffEnabled(true);
 
     // <[~ Lines ~]>
 
-    sub_menu = tools_menu->addMenu(QC_ApplicationWindow::tr("&Line"));
+    sub_menu = tools_menu->addMenu(QStringLiteral("线"));
     sub_menu->setIcon(QIcon(":/icons/line.svg"));
     sub_menu->setObjectName("Line");
     sub_menu->addActions(line_actions);
 
     // <[~ Circles ~]>
 
-    sub_menu = tools_menu->addMenu(QC_ApplicationWindow::tr("&Circle"));
+    sub_menu = tools_menu->addMenu(QStringLiteral("圆"));
     sub_menu->setIcon(QIcon(":/icons/circle.svg"));
     sub_menu->setObjectName("Circle");
     sub_menu->addActions(circle_actions);
 
     // <[~ Curves ~]>
 
-    sub_menu = tools_menu->addMenu(QC_ApplicationWindow::tr("&Curve"));
+    sub_menu = tools_menu->addMenu(QStringLiteral("曲线"));
     sub_menu->setIcon(QIcon(":/icons/line_freehand.svg"));
     sub_menu->setObjectName("Curve");
     sub_menu->addActions(curve_actions);
 
     // <[~ Ellipses ~]>
 
-    sub_menu = tools_menu->addMenu(QC_ApplicationWindow::tr("&Ellipse"));
+    sub_menu = tools_menu->addMenu(QStringLiteral("椭圆"));
     sub_menu->setIcon(QIcon(":/icons/ellipses.svg"));
     sub_menu->setObjectName("Ellipse");
     sub_menu->addActions(ellipse_actions);
 
     // <[~ Polylines ~]>
 
-    sub_menu = tools_menu->addMenu(QC_ApplicationWindow::tr("&Polyline"));
+    sub_menu = tools_menu->addMenu(QStringLiteral("折线"));
     sub_menu->setIcon(QIcon(":/icons/polylines_polyline.svg"));
     sub_menu->setObjectName("Polyline");
     sub_menu->addActions(polyline_actions);
 
     // <[~ Select ~]>
 
-    QMenu* select_menu = tools_menu->addMenu(QC_ApplicationWindow::tr("&Select"));
+    QMenu* select_menu = tools_menu->addMenu(QStringLiteral("选择"));
     select_menu->setIcon(QIcon(":/icons/select.svg"));
     select_menu->setObjectName("Select");
     select_menu->setTearOffEnabled(true);
@@ -688,7 +688,7 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar)
 
     // <[~ Dimension ~]>
 
-    QMenu* dimension_menu = tools_menu->addMenu(QC_ApplicationWindow::tr("Dime&nsion"));
+    QMenu* dimension_menu = tools_menu->addMenu(QStringLiteral("尺寸"));
     dimension_menu->setIcon(QIcon(":/icons/dim_horizontal.svg"));
     dimension_menu->setObjectName("dimension_menu");
     dimension_menu->setTearOffEnabled(true);
@@ -696,7 +696,7 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar)
 
     // <[~ Order ~]>
 
-    QMenu* order_menu = new QMenu(QC_ApplicationWindow::tr("&Order"), menu_bar);
+    QMenu* order_menu = new QMenu(QStringLiteral("命令"), menu_bar);
     order_menu->setObjectName("order_menu");
     order_menu->setTearOffEnabled(true);
     order_menu->addAction(a_map["OrderTop"]);
@@ -706,7 +706,7 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar)
 
     // <[~ Modify ~]>
 
-    QMenu* modify_menu = tools_menu->addMenu(QC_ApplicationWindow::tr("&Modify"));
+    QMenu* modify_menu = tools_menu->addMenu(QStringLiteral("修改"));
     modify_menu->setIcon(QIcon(":/icons/move_rotate.svg"));
     modify_menu->setObjectName("Modify");
     modify_menu->setTearOffEnabled(true);
@@ -715,7 +715,7 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar)
 
     // <[~ Info ~]>
 
-    QMenu* info_menu = tools_menu->addMenu(QC_ApplicationWindow::tr("&Info"));
+    QMenu* info_menu = tools_menu->addMenu(QStringLiteral("标注"));
     info_menu->setIcon(QIcon(":/icons/measure.svg"));
     info_menu->setObjectName("Info");
     info_menu->setTearOffEnabled(true);
@@ -728,21 +728,21 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar)
 
     // <[~ Layer ~]>
 
-//    QMenu* layer_menu = new QMenu(QC_ApplicationWindow::tr("&Layer"), menu_bar);
+//    QMenu* layer_menu = new QMenu(QStringLiteral("&Layer"), menu_bar);
 //    layer_menu->setObjectName("layer_menu");
 //    layer_menu->setTearOffEnabled(true);
 //    layer_menu->addActions(layer_actions);
 
     // <[~ Block ~]>
 
-//    QMenu* block_menu = new QMenu(QC_ApplicationWindow::tr("&Block"), menu_bar);
+//    QMenu* block_menu = new QMenu(QStringLiteral("&Block"), menu_bar);
 //    block_menu->setObjectName("block_menu");
 //    block_menu->setTearOffEnabled(true);
 //    block_menu->addActions(block_actions);
 
     // <[~ Snapping ~]>
 
-//    QMenu* snap_menu = new QMenu(QC_ApplicationWindow::tr("Sna&p"), menu_bar);
+//    QMenu* snap_menu = new QMenu(QStringLiteral("Sna&p"), menu_bar);
 //    snap_menu->setObjectName("snap_menu");
 //    snap_menu->setTearOffEnabled(true);
 //    // QToolBar* snap_tb = main_window->findChild<QToolBar*>("snap_toolbar");
@@ -750,7 +750,7 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar)
 
     // <[~ Drawings ~]>
 
-    windows_menu = new QMenu(QC_ApplicationWindow::tr("&Drawings"), menu_bar);
+    windows_menu = new QMenu(QStringLiteral("绘图窗口"), menu_bar);
     windows_menu->setObjectName("drawings_menu");
     windows_menu->setTearOffEnabled(true);
     windows_menu->addAction(a_map["Fullscreen"]); // temp way to show this menu on OS X
@@ -760,32 +760,32 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar)
 
     // <[~ Help ~]>
 
-    QMenu* help_menu = new QMenu(QC_ApplicationWindow::tr("&Help"), menu_bar);
+    QMenu* help_menu = new QMenu(QStringLiteral("帮助"), menu_bar);
     help_menu->setObjectName("Help");
     help_menu->setTearOffEnabled(true);
 
-    QAction* wiki_link = new QAction(QC_ApplicationWindow::tr("Online"), main_window);
-    connect(wiki_link, SIGNAL(triggered()), main_window, SLOT(invokeLinkList()));
-    help_menu->addAction(wiki_link);
+//    QAction* wiki_link = new QAction(QStringLiteral("在线"), main_window);
+//    connect(wiki_link, SIGNAL(triggered()), main_window, SLOT(invokeLinkList()));
+//    help_menu->addAction(wiki_link);
 
-    help_menu->addSeparator();
+//    help_menu->addSeparator();
 
-    QAction* help_about = new QAction(QIcon(":/main/librecad.png"), QC_ApplicationWindow::tr("About"), main_window);
+    QAction* help_about = new QAction(QIcon(":/main/librecad.png"), QStringLiteral("关于"), main_window);
     connect(help_about, SIGNAL(triggered()), main_window, SLOT(showAboutWindow()));
     help_menu->addAction(help_about);
 
-    QAction* license = new QAction(QObject::tr("License"), main_window);
-    connect(license, SIGNAL(triggered()), main_window, SLOT(invokeLicenseWindow()));
-    help_menu->addAction(license);
+//    QAction* license = new QAction(QStringLiteral("授权声明"), main_window);
+//    connect(license, SIGNAL(triggered()), main_window, SLOT(invokeLicenseWindow()));
+//    help_menu->addAction(license);
 
     // <[~ Widgets Menu ~]>
 
-    QMenu* widgets_menu = new QMenu("Widgets", menu_bar);
+    QMenu* widgets_menu = new QMenu(QStringLiteral("控件"), menu_bar);
     widgets_menu->setTearOffEnabled(true);
 
     // <[~ Dock Areas Menu ~]>
 
-    QMenu* dockareas_menu = new QMenu("Dock Areas", widgets_menu);
+    QMenu* dockareas_menu = new QMenu(QStringLiteral("停靠区域"), widgets_menu);
 
     dockareas_menu->addAction(a_map["LeftDockAreaToggle"]);
     dockareas_menu->addAction(a_map["RightDockAreaToggle"]);
@@ -795,7 +795,7 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar)
 
     // <[~ Dock Widgets Menu ~]>
 
-    QMenu* dockwidgets_menu = new QMenu(QC_ApplicationWindow::tr("Dock Wid&gets"), widgets_menu);
+    QMenu* dockwidgets_menu = new QMenu(QStringLiteral("停靠窗口"), widgets_menu);
     dockwidgets_menu->setObjectName("dockwidgets_menu");
     dockwidgets_menu->setTearOffEnabled(true);
 
@@ -821,7 +821,7 @@ void LC_WidgetFactory::createMenus(QMenuBar* menu_bar)
 
     // <[~ Toolbars Menu ~]>
 
-    QMenu* toolbars_menu = new QMenu(QC_ApplicationWindow::tr("&Toolbars"), widgets_menu);
+    QMenu* toolbars_menu = new QMenu(QStringLiteral("工具栏"), widgets_menu);
     toolbars_menu->setObjectName("toolbars_menu");
     toolbars_menu->setTearOffEnabled(true);
 

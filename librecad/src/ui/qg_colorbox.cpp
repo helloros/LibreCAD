@@ -80,8 +80,8 @@ void QG_ColorBox::init(bool showByLayer, bool showUnchanged) {
         addItem(QIcon(":/ui/color00.png"), tr("Unchanged"));
     }
     if (showByLayer) {
-        addItem(QIcon(":/ui/color00.png"), tr("By Layer"));
-        addItem(QIcon(":/ui/color00.png"), tr("By Block"));
+        addItem(QIcon(":/ui/color00.png"), QStringLiteral("按图层"));
+        addItem(QIcon(":/ui/color00.png"), QStringLiteral("按块"));
     }
 
     addItem(QIcon(":/ui/colorxx.png"), tr("Custom"));
@@ -186,7 +186,7 @@ void QG_ColorBox::setLayerColor(const RS_Color& color) {
     painter.end();
 
     setItemIcon(0, QIcon(pixmap));
-    setItemText(0, tr("By Layer"));
+    setItemText(0, QStringLiteral("按图层"));
 
     // needed for the first time a layer is added:
     if (currentIndex()!= count() -1 ) {

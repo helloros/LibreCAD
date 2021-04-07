@@ -29,8 +29,8 @@ plotDialog::plotDialog(QWidget *parent) :
     lnedStartValue = new QLineEdit(this);
     lnedEndValue = new QLineEdit(this);
     lnedStepSize = new QLineEdit(this);
-    btnAccept = new QPushButton(tr("Draw"));
-    btnCancel = new QPushButton(tr("Cancel"));
+    btnAccept = new QPushButton(QStringLiteral("绘图"));
+    btnCancel = new QPushButton(QStringLiteral("取消"));
     space = new QSpacerItem(0, 20);
 
 

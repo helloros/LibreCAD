@@ -345,7 +345,7 @@ QC_ApplicationWindow::QC_ApplicationWindow()
     RS_DEBUG->print("setting dialog factory object: OK");
 
     recentFiles = new QG_RecentFiles(this, 9);
-    auto recent_menu = new QMenu(tr("Recent Files"), file_menu);
+    auto recent_menu = new QMenu(QStringLiteral("最近使用文件"), file_menu);
     file_menu->addMenu(recent_menu);
     recentFiles->addFiles(recent_menu);
 
@@ -585,7 +585,7 @@ int QC_ApplicationWindow::showCloseDialog(QC_MDIWindow * w, bool showSaveAll)
 {
 	QG_ExitDialog dlg(this);
 	dlg.setShowSaveAll(showSaveAll);
-	dlg.setTitle(tr("Closing Drawing"));
+    dlg.setTitle(QStringLiteral("关闭绘图"));
 	if (w && w->getDocument()->isModified()) {
 		QString fn = w->getDocument()->getFilename();
 		if (fn.isEmpty())
@@ -593,7 +593,7 @@ int QC_ApplicationWindow::showCloseDialog(QC_MDIWindow * w, bool showSaveAll)
 		else if (fn.length() > 50)
 			fn = QString("%1...%2").arg(fn.left(24)).arg(fn.right(24));
 
-		dlg.setText(tr("Save changes to the following item?\n%1").arg(fn));
+        dlg.setText(QStringLiteral("是否保存对文件\"") + fn + QStringLiteral("\"的修改?"));
 		return dlg.exec();
 	}
 	return -1; // should never get here; please send only modified documents
@@ -605,8 +605,8 @@ int QC_ApplicationWindow::showCloseDialog(QC_MDIWindow * w, bool showSaveAll)
 void QC_ApplicationWindow::enableFileActions(QC_MDIWindow* w)
 {
 	if (!w || w->getDocument()->getFilename().isEmpty()) {
-		a_map["FileSave"]->setText(tr("&Save"));
-		a_map["FileSaveAs"]->setText(tr("Save &as..."));
+        a_map["FileSave"]->setText(QStringLiteral("保存文件"));
+        a_map["FileSaveAs"]->setText(QStringLiteral("文件另存为..."));
 	}
 	else {
 		QString name = format_filename_caption(w->getDocument()->getFilename());
@@ -1074,57 +1074,57 @@ void QC_ApplicationWindow::slotWindowsMenuAboutToShow() {
 	bool tabbed = mdiAreaCAD->viewMode() == QMdiArea::TabbedView;
     windowsMenu->clear(); // this is a temporary menu; constructed on-demand
 
-	menuItem = windowsMenu->addAction(tr("Ta&b mode"), this, SLOT(slotToggleTab()));
+    menuItem = windowsMenu->addAction(QStringLiteral("标签模式"), this, SLOT(slotToggleTab()));
 	menuItem->setCheckable(true);
 	menuItem->setChecked(tabbed);
 
-	menuItem = windowsMenu->addAction( tr("&Window mode"), this, SLOT(slotToggleTab()));
+    menuItem = windowsMenu->addAction(QStringLiteral("窗口模式"), this, SLOT(slotToggleTab()));
 	menuItem->setCheckable(true);
 	menuItem->setChecked(!tabbed);
 
 	
 	if (mdiAreaCAD->viewMode() == QMdiArea::TabbedView) {
-		menu = new QMenu(tr("&Layout"), windowsMenu);
+        menu = new QMenu(QStringLiteral("标签布局"), windowsMenu);
 		windowsMenu->addMenu(menu);
 
-		menuItem = menu->addAction(tr("Rounded"), this, SLOT(slotTabShapeRounded()));
+        menuItem = menu->addAction(QStringLiteral("圆边"), this, SLOT(slotTabShapeRounded()));
 		menuItem->setCheckable(true);
 		menuItem->setChecked(RS_SETTINGS->readNumEntry("/TabShape") == RS2::Rounded);
 
-		menuItem = menu->addAction(tr("Triangular"), this, SLOT(slotTabShapeTriangular()));
+        menuItem = menu->addAction(QStringLiteral("三角形"), this, SLOT(slotTabShapeTriangular()));
 		menuItem->setCheckable(true);
 		menuItem->setChecked(RS_SETTINGS->readNumEntry("/TabShape") == RS2::Triangular);
 
 		menu->addSeparator();
 
-		menuItem = menu->addAction(tr("North"), this, SLOT(slotTabPositionNorth()));
+        menuItem = menu->addAction(QStringLiteral("标签位置上"), this, SLOT(slotTabPositionNorth()));
 		menuItem->setCheckable(true);
 		menuItem->setChecked(RS_SETTINGS->readNumEntry("/TabPosition") == RS2::North);
 
-		menuItem = menu->addAction(tr("South"), this, SLOT(slotTabPositionSouth()));
+        menuItem = menu->addAction(QStringLiteral("标签位置下"), this, SLOT(slotTabPositionSouth()));
 		menuItem->setCheckable(true);
 		menuItem->setChecked(RS_SETTINGS->readNumEntry("/TabPosition") == RS2::South);
 
-		menuItem = menu->addAction(tr("East"), this, SLOT(slotTabPositionEast()));
+        menuItem = menu->addAction(QStringLiteral("标签位置右"), this, SLOT(slotTabPositionEast()));
 		menuItem->setCheckable(true);
 		menuItem->setChecked(RS_SETTINGS->readNumEntry("/TabPosition") == RS2::East);
 
-		menuItem = menu->addAction(tr("West"), this, SLOT(slotTabPositionWest()));
+        menuItem = menu->addAction(QStringLiteral("标签位置左"), this, SLOT(slotTabPositionWest()));
 		menuItem->setCheckable(true);
 		menuItem->setChecked(RS_SETTINGS->readNumEntry("/TabPosition") == RS2::West);
 
 	} else {
-		menu = new QMenu(tr("&Arrange"), windowsMenu);
+        menu = new QMenu(QStringLiteral("排版"), windowsMenu);
 		windowsMenu->addMenu(menu);
 
-		menuItem = menu->addAction(tr("&Maximized"), this, SLOT(slotSetMaximized()));
+        menuItem = menu->addAction(QStringLiteral("最大化"), this, SLOT(slotSetMaximized()));
 		menuItem->setCheckable(true);
 		menuItem->setChecked(RS_SETTINGS->readNumEntry("/SubWindowMode") == RS2::Maximized);
 
-        menu->addAction(tr("&Cascade"), this, SLOT(slotCascade()));
-        menu->addAction(tr("&Tile"), this, SLOT(slotTile()));
-        menu->addAction(tr("Tile &Vertically"), this, SLOT(slotTileVertical()));
-        menu->addAction(tr("Tile &Horizontally"), this, SLOT(slotTileHorizontal()));
+        menu->addAction(QStringLiteral("级联"), this, SLOT(slotCascade()));
+        menu->addAction(QStringLiteral("平铺"), this, SLOT(slotTile()));
+        menu->addAction(QStringLiteral("垂直平铺"), this, SLOT(slotTileVertical()));
+        menu->addAction(QStringLiteral("水平平铺"), this, SLOT(slotTileHorizontal()));
 	}
 	
 
@@ -1491,7 +1491,7 @@ QC_MDIWindow* QC_ApplicationWindow::slotFileNew(RS_Document* doc) {
     if (w->getDocument()->rtti()==RS2::EntityBlock) {
         w->setWindowTitle(tr("Block '%1'").arg(((RS_Block*)(w->getDocument()))->getName()) + "[*]");
     } else {
-        w->setWindowTitle(tr("unnamed document %1").arg(id) + "[*]");
+        w->setWindowTitle(QStringLiteral("未命名文件") + QString::number(id) + "[*]");
     }
 
     //check for draft mode
@@ -2866,7 +2866,7 @@ void QC_ApplicationWindow::showAboutWindow()
     // author: ravas
 
     QDialog dlg;
-    dlg.setWindowTitle(tr("About"));
+    dlg.setWindowTitle(QStringLiteral("关于"));
 
     auto layout = new QVBoxLayout;
     dlg.setLayout(layout);
@@ -2882,7 +2882,7 @@ void QC_ApplicationWindow::showAboutWindow()
 
     QString info
     (
-        tr("Version: %1").arg(XSTR(LC_VERSION)) + "\n" +
+//        tr("Version: %1").arg(XSTR(LC_VERSION)) + "\n" +
         #if defined(Q_CC_CLANG)
             tr("Compiler: Clang %1.%2.%3").arg(__clang_major__).arg(__clang_minor__).arg(__clang_patchlevel__) + "\n" +
         #elif defined(Q_CC_GNU)
@@ -2891,7 +2891,7 @@ void QC_ApplicationWindow::showAboutWindow()
             tr("Compiler: Microsoft Visual C++") + "\n" +
         #endif
         tr("Compiled on: %1").arg(__DATE__) + "\n" +
-        tr("Qt Version: %1").arg(qVersion()) + "\n" +
+//        tr("Qt Version: %1").arg(qVersion()) + "\n" +
         tr("Boost Version: %1.%2.%3").arg(BOOST_VERSION / 100000).arg(BOOST_VERSION / 100 % 1000).arg(BOOST_VERSION % 100)
     );
 
@@ -2899,23 +2899,23 @@ void QC_ApplicationWindow::showAboutWindow()
     app_info->setTextInteractionFlags(Qt::TextSelectableByMouse);
     f_layout->addWidget(app_info);
 
-    auto copy_button = new QPushButton(tr("Copy"));
+    auto copy_button = new QPushButton(QStringLiteral("复制"));
     // copy_button->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
     f_layout->addWidget(copy_button);
 
     connect(copy_button, SIGNAL(released()), &dlg, SLOT(accept()));
 
-    QLabel *links_label = new QLabel( QString( "<a href=\"https://github.com/LibreCAD/LibreCAD/graphs/contributors\">%1</a>"
-                                               "<br/>"
-                                               "<a href=\"https://github.com/LibreCAD/LibreCAD/blob/master/LICENSE\">%2</a>"
-                                               "<br/>"
-                                               "<a href=\"https://github.com/LibreCAD/LibreCAD/\">%3</a>")
-                                      .arg( tr("Contributors"))
-                                      .arg( tr("License"))
-                                      .arg( tr("The Code")) );
-    links_label->setOpenExternalLinks(true);
-    links_label->setTextInteractionFlags(Qt::LinksAccessibleByMouse);
-    f_layout->addWidget(links_label);
+//    QLabel *links_label = new QLabel( QString( "<a href=\"https://github.com/LibreCAD/LibreCAD/graphs/contributors\">%1</a>"
+//                                               "<br/>"
+//                                               "<a href=\"https://github.com/LibreCAD/LibreCAD/blob/master/LICENSE\">%2</a>"
+//                                               "<br/>"
+//                                               "<a href=\"https://github.com/LibreCAD/LibreCAD/\">%3</a>")
+//                                      .arg( tr("Contributors"))
+//                                      .arg( tr("License"))
+//                                      .arg( tr("The Code")) );
+//    links_label->setOpenExternalLinks(true);
+//    links_label->setTextInteractionFlags(Qt::LinksAccessibleByMouse);
+//    f_layout->addWidget(links_label);
 
     if (dlg.exec())
     {
@@ -3263,7 +3263,7 @@ void QC_ApplicationWindow::modifyCommandTitleBar(Qt::DockWidgetArea area)
     }
     else
     {
-        cmd_dockwidget->setWindowTitle(tr("Command line"));
+        cmd_dockwidget->setWindowTitle(QStringLiteral("命令行"));
         cmd_dockwidget->setFeatures(QDockWidget::DockWidgetClosable
                                    |QDockWidget::DockWidgetMovable
                                    |QDockWidget::DockWidgetFloatable);
@@ -3346,7 +3346,7 @@ void QC_ApplicationWindow::invokeToolbarCreator()
 {
     // author: ravas
 
-    auto tb_creator = findChild<QDialog*>("Toolbar Creator");
+    auto tb_creator = findChild<QDialog*>(QStringLiteral("工具栏编辑器"));
     if (tb_creator)
     {
         tb_creator->raise();
@@ -3356,7 +3356,7 @@ void QC_ApplicationWindow::invokeToolbarCreator()
 
     auto dlg = new QDialog(this);
     dlg->setAttribute(Qt::WA_DeleteOnClose);
-    dlg->setWindowTitle(tr("Toolbar Creator"));
+    dlg->setWindowTitle(QStringLiteral("工具栏编辑器"));
     dlg->setObjectName("Toolbar Creator");
 
     auto toolbar_creator = new WidgetCreator(dlg, a_map, ag_manager->allGroups());
@@ -3412,7 +3412,7 @@ void QC_ApplicationWindow::invokeMenuCreator()
 {
     // author: ravas
 
-    auto menu_creator = findChild<QDialog*>("Menu Creator");
+    auto menu_creator = findChild<QDialog*>(QStringLiteral("菜单编辑器"));
     if (menu_creator)
     {
         menu_creator->raise();
@@ -3422,7 +3422,7 @@ void QC_ApplicationWindow::invokeMenuCreator()
 
     auto dlg = new QDialog(this);
     dlg->setAttribute(Qt::WA_DeleteOnClose);
-    dlg->setWindowTitle(tr("Menu Creator"));
+    dlg->setWindowTitle(QStringLiteral("菜单编辑器"));
     auto layout = new QVBoxLayout;
     auto widget_creator = new WidgetCreator(dlg, a_map, ag_manager->allGroups(), true);
     widget_creator->addCustomWidgets("CustomMenus");
@@ -3447,7 +3447,7 @@ void QC_ApplicationWindow::invokeMenuAssigner(const QString& menu_name)
     settings.beginGroup("Activators");
 
     QDialog dlg;
-    dlg.setWindowTitle(tr("Menu Assigner"));
+    dlg.setWindowTitle(QStringLiteral("菜单分配器"));
 
     auto cb_1 = new QCheckBox("Double-Click");
     auto cb_2 = new QCheckBox("Right-Click");
@@ -3634,7 +3634,7 @@ void QC_ApplicationWindow::invokeLicenseWindow()
 
     QDialog dlg;
 
-    dlg.setWindowTitle(QObject::tr("License"));
+    dlg.setWindowTitle(QStringLiteral("授权声明"));
 
     auto viewer = new TextFileViewer(&dlg);
     auto layout = new QVBoxLayout;

@@ -36,7 +36,7 @@
 
 RS_ActionDrawPoint::RS_ActionDrawPoint(RS_EntityContainer& container,
                                        RS_GraphicView& graphicView)
-        :RS_PreviewActionInterface("Draw Points",
+        :RS_PreviewActionInterface(QStringLiteral("画点").toStdString().c_str(),
 						   container, graphicView)
 		, pt(new RS_Vector{})
 {

@@ -426,22 +426,22 @@ QStringList RS_ActionDrawCircleTan1_2P::getAvailableCommands() {
 void RS_ActionDrawCircleTan1_2P::updateMouseButtonHints() {
 	switch (getStatus()) {
 	case SetCircle1:
-		RS_DIALOGFACTORY->updateMouseWidget(tr("Specify a line/arc/circle"),
-											tr("Cancel"));
+        RS_DIALOGFACTORY->updateMouseWidget(QStringLiteral("指定线/弧/圆"),
+                                            QStringLiteral("取消"));
 		break;
 
 	case SetPoint1:
-		RS_DIALOGFACTORY->updateMouseWidget(tr("Specify the first point on the tangent circle"),
-											tr("Back"));
+        RS_DIALOGFACTORY->updateMouseWidget(QStringLiteral("在切圆上指定第一个点"),
+                                            QStringLiteral("后退"));
 		break;
 
 	case SetPoint2:
-		RS_DIALOGFACTORY->updateMouseWidget(tr("Specify the second point on the tangent circle"),
-											tr("Back"));
+        RS_DIALOGFACTORY->updateMouseWidget(QStringLiteral("在切圆上指定第二个点"),
+                                            QStringLiteral("后退"));
 		break;
 	case SetCenter:
-		RS_DIALOGFACTORY->updateMouseWidget(tr("Select the center of the tangent circle"),
-											tr("Back"));
+        RS_DIALOGFACTORY->updateMouseWidget(QStringLiteral("选择切圆的中心"),
+                                            QStringLiteral("后退"));
 		break;
 	default:
 		RS_DIALOGFACTORY->updateMouseWidget();

@@ -177,7 +177,7 @@ void RS_ActionDimAngular::commandEvent(RS_CommandEvent* e)
 {
     QString c( e->getCommand().toLower());
 
-    if (checkCommand( QStringLiteral( "help"), c)) {
+    if (checkCommand( QStringLiteral("帮助"), c)) {
         RS_DIALOGFACTORY->commandMessage( msgAvailableCommands()
                                           + getAvailableCommands().join(", "));
         return;
@@ -193,7 +193,7 @@ void RS_ActionDimAngular::commandEvent(RS_CommandEvent* e)
     }
 
     // command: text
-    if (checkCommand( QStringLiteral( "text"), c)) {
+    if (checkCommand( QStringLiteral("文本"), c)) {
         lastStatus = static_cast<Status>(getStatus());
         graphicView->disableCoordinateInput();
         setStatus( SetText);
@@ -208,7 +208,7 @@ QStringList RS_ActionDimAngular::getAvailableCommands()
     case SetLine1:
     case SetLine2:
     case SetPos:
-        cmd += command( QStringLiteral( "text"));
+        cmd += command( QStringLiteral( "文本"));
         break;
 
     default:

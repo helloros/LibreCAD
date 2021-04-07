@@ -34,10 +34,10 @@
 
 RS_ActionLayersAdd::RS_ActionLayersAdd(RS_EntityContainer& container,
                                        RS_GraphicView& graphicView)
-        :RS_ActionInterface("Add Layer", container, graphicView) {}
+        :RS_ActionInterface(QStringLiteral("添加图层").toStdString().c_str(), container, graphicView) {}
 
 void RS_ActionLayersAdd::trigger() {
-	RS_DEBUG->print("add layer");
+    RS_DEBUG->print("添加图层");
 
 	if (graphic) {
 		RS_Layer* layer = RS_DIALOGFACTORY->requestNewLayerDialog(

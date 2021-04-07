@@ -62,7 +62,7 @@ picPunto::picPunto(QWidget *parent) :  QDialog(parent)
     QGridLayout *mainLayout = new QGridLayout;
 //readSettings();
 
-    QPushButton *filebut = new QPushButton(tr("File..."));
+    QPushButton *filebut = new QPushButton(QStringLiteral("文件..."));
     fileedit = new QLineEdit();
 
     QDoubleValidator *val = new QDoubleValidator(0);
@@ -76,11 +76,11 @@ picPunto::picPunto(QWidget *parent) :  QDialog(parent)
     mainLayout->addLayout(flo, 0, 0);
 
     QHBoxLayout *loacceptcancel = new QHBoxLayout;
-    QPushButton *acceptbut = new QPushButton(tr("Accept"));
+    QPushButton *acceptbut = new QPushButton(QStringLiteral("应用"));
     loacceptcancel->addStretch();
     loacceptcancel->addWidget(acceptbut);
 
-    QPushButton *cancelbut = new QPushButton(tr("Cancel"));
+    QPushButton *cancelbut = new QPushButton(QStringLiteral("取消"));
     loacceptcancel->addWidget(cancelbut);
     mainLayout->addLayout(loacceptcancel, 1, 0);
 
@@ -301,7 +301,7 @@ picPunto::~picPunto()
 void picPunto::readSettings()
  {
     QString str;
-    QSettings settings(QSettings::IniFormat, QSettings::UserScope, "LibreCAD", "picfile");
+    QSettings settings(QSettings::IniFormat, QSettings::UserScope, "正CAD", "picfile");
     QPoint pos = settings.value("pos", QPoint(200, 200)).toPoint();
     QSize size = settings.value("size", QSize(400,50)).toSize();
     str = settings.value("lastfile").toString();
@@ -315,7 +315,7 @@ void picPunto::readSettings()
 
 void picPunto::writeSettings()
  {
-    QSettings settings(QSettings::IniFormat, QSettings::UserScope, "LibreCAD", "picfile");
+    QSettings settings(QSettings::IniFormat, QSettings::UserScope, "正CAD", "picfile");
     settings.setValue("pos", pos());
     settings.setValue("size", size());
     settings.setValue("lastfile", fileedit->text());

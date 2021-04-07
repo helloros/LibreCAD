@@ -62,7 +62,7 @@ void QG_LayerDialog::setLayer(RS_Layer* l) {
     layer = l;	
 	layerName = layer->getName();
     leName->setText(layerName);
-    wPen->setPen(layer->getPen(), false, false, tr("Default Pen"));
+    wPen->setPen(layer->getPen(), false, false, QStringLiteral("默认画笔"));
     cbConstructionLayer->setChecked(l->isConstruction());
 
     if (layer->getName()=="0") {
@@ -82,11 +82,8 @@ void QG_LayerDialog::validate() {
                 RS_Layer* l = layerList->find(leName->text());
 		if (l) {
 			QMessageBox::information(parentWidget(),
-									 QMessageBox::tr("Layer Properties"),
-									 QMessageBox::tr("Layer with a name \"%1\" "
-													 "already exists. Please specify "
-													 "a different name.")
-                                                                         .arg(leName->text()),
+                                     QMessageBox::tr("图层属性"),
+                                     QMessageBox::tr((QStringLiteral("图层") + leName->text() + "已存在, 请指定其他名称").toStdString().c_str()),
 									 QMessageBox::Ok);
 			leName->setFocus();
 			leName->selectAll();
